@@ -12,6 +12,17 @@ ntp enable
 time daylight-time-rule continental-us-and-canada
 time timezone -480
 ```
+
+**Add authentication if the NTP server supports it:**
+
+This example enables NTP authentication, add authentication secret keys into the database, and specifies a subset of keys which are trusted.
+
+```
+ntp authenticate
+ntp authentication-key <key-id> md5 <key-secret>
+ntp trusted-key <key-id>
+```
+
 ## Show Commands
 
 * show time
