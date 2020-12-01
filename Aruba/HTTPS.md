@@ -23,6 +23,18 @@ web-management ssl
 **Remove weak ciphers**
 
 The first thing to do is disable TLS 1/0/1.1
+
+From global configuration mode
+
+```
+tls application web-ssl lowest-version ?
+ default               Configure the default version of TLS1.1 as the lowest version of TLS for the specified application
+ tls1.0                Configure TLS1.0 as the lowest version of TLS for the specified application
+ tls1.1                Configure TLS1.1 as the lowest version of TLS for the specified application
+ tls1.2                Configure TLS1.2 as the lowest version of TLS for the specified application
+```
+Select tls1.2
+
 ```
 tls application web-ssl lowest-version tls1.2 
 ```
