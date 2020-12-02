@@ -9,10 +9,10 @@ In this example:
 * Vlans to enable DHCP Snooping on - 2, 4-10, 15
 
 ```
-dhcp-snooping
-dhcp-snooping authorized-server 10.20.20.26
-no dhcp-snooping option 82
-dhcp-snooping vlan 2 4-10 15
+HP-2920-24G-PoEP(config)# dhcp-snooping
+HP-2920-24G-PoEP(config)# dhcp-snooping authorized-server 10.20.20.26
+HP-2920-24G-PoEP(config)# no dhcp-snooping option 82
+HP-2920-24G-PoEP(config)# dhcp-snooping vlan 2 4-10 15
 ```
 
 The port that the DHCP server is connected to must be "trusted".
@@ -66,3 +66,11 @@ To enable debug logging for DHCP snooping, use this command.
 * event - Displays DHCP snooping event messages.
 * packet - Displays DHCP snooping packet messages.
 
+**A tool for conducting a DHCP Exhaution attack**
+DHCPig is a free, open source tool for testing DHCP security. It's worth your time to grab it, set up a lab, and run wireshark
+while you test your DHCP security. DHCP fingerprinting is a key component in modern security components like Clearpass. The more you know about
+DHCP the better. 
+
+* [DHCPig](https://github.com/kamorin/DHCPig)
+* [Defcon Presentation slides on DHCP Finger Printing](https://www.defcon.org/images/defcon-19/dc-19-presentations/Bilodeau/DEFCON-19-Bilodeau-FingerBank.pdf)
+* [Defcon Video Presentation on DHCP Finger Printing](https://av.tib.eu/media/40610)
