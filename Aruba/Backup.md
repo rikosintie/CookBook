@@ -10,7 +10,7 @@ job "backup" at 02:59 "cfg-backup running-config config backup"
 job "wr-mem" at 03:00 config-save "wr mem"
 job "backup2" at 03:02 "copy running-config tftp 10.20.2.70 switch.wri"
 ```
-
+<p>&nbsp;</p>
 # Working with config files
 Display the configuration files in flash
 
@@ -27,26 +27,23 @@ Configuration files:
   4 |             | 
   5 |             | 
 ```
-
-
+<p>&nbsp;</p>
 
 **Review a configuration file**
 
 `
 show config backup
 `
-
-
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 **Compare running-config to a file in flash**
 
 `
 cfg-restore flash backup diff 
 `
 
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 **Delete a config file**
 
@@ -57,15 +54,15 @@ erase config backup
 If you delete the configuration file that is active, the switch will reload.
 
 
-
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 **Boot from the backup configuration**
 
 `
 boot system flash primary config backup
 `
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 **Copy the backup configuration from a TFTP server**
 
@@ -83,8 +80,8 @@ This example copies switch.wri from the tftp server 10.20.2.79 to the startup-co
 copy tftp startup-config 10.20.2.79 switch.wri oobm
 `
 
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 **Configuration Restore**
 
@@ -101,8 +98,8 @@ While the restore is in progress all processes are blocked from making changes:
 `cfg-restore flash backup
 `
 
-
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
 **Automatic  rollback**
 
