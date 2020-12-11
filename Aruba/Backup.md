@@ -27,17 +27,20 @@ Configuration files:
   4 |             | 
   5 |             | 
 ```
+
 **Review a configuration file**
 
 `
 show config backup
 `
 
+
 **Compare running-config to a file in flash**
 
 `
 cfg-restore flash backup diff 
 `
+
 
 **Delete a config file**
 
@@ -48,11 +51,13 @@ erase config backup
 If you delete the configuration file that is active, the switch will reload.
 
 
+
 **Boot from the backup configuration**
 
 `
 boot system flash primary config backup
 `
+
 
 **Copy the backup configuration from a TFTP server**
 
@@ -70,6 +75,7 @@ This example copies switch.wri from the tftp server 10.20.2.79 to the startup-co
 copy tftp startup-config 10.20.2.79 switch.wri oobm
 `
 
+
 **Configuration Restore**
 
 You can do a live restore from a file in flash or on a tftp/sftp server to the running-config. 
@@ -84,6 +90,7 @@ While the restore is in progress all processes are blocked from making changes:
 
 `cfg-restore flash backup
 `
+
 
 **Automatic  rollback**
 
