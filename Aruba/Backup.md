@@ -92,7 +92,7 @@ While the restore is in progress all processes are blocked from making changes:
 The cfg-restore command can be used in conjunction with the alias command and job scheduler function to provide a means for automatically reverting to a stable configuration. Use this when an modifying the running configuration remotely in case you lose connectivity to the switch and are unable to revert their changes.
 
 ```
-alias "cfg-rollback" "cfg-restore flash stable"
+alias "cfg-rollback" "cfg-restore flash backup"
 job "auto-rollback" delay 00:00:15 "cfg_rollback" count 1
 ```
 
