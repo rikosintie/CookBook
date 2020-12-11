@@ -1,11 +1,12 @@
 ## Create backup jobs
+The "job" command allows you to create custom scheduled tasks. Below are three examples.
 
 * Backup the current startup config (config file in flash)
 * Do a write mem to save the curring running-config to flash
 * Copy running-config to a tftp server if the security policy allows it
 
 ```
-job "backup" at 02:59 "copy config config1 config backup"
+job "backup" at 02:59 "cfg-backup running-config config backup"
 job "wr-mem" at 03:00 config-save "wr mem"
 job "backup2" at 03:02 "copy running-config tftp 10.20.2.70 switch.wri"
 ```
@@ -29,7 +30,13 @@ Configuration files:
 **Review a configuration file**
 
 `
-show config <filename>
+show config backup
+`
+
+**Compare running-config to a file in flash**
+
+`
+cfg-restore flash backup diff 
 `
 
 **Delete a config file**
@@ -38,20 +45,6 @@ show config <filename>
 erase config backup
 ```
 
-Verify the deletion
-```
-sh config files
-
-Configuration files:
-
- id | act pri sec | name
- ---+-------------+------------------------------------------------
-  1 |  *   *   *  | config1
-  2 |             | 
-  3 |             |  
-  4 |             | 
-  5 |             | 
-```
 If you delete the configuration file that is active, the switch will reload.
 
 
@@ -61,7 +54,7 @@ If you delete the configuration file that is active, the switch will reload.
 boot system flash primary config backup
 `
 
-**Copy the backup configuration from the TFTP server**
+**Copy the backup configuration from a TFTP server**
 
 Note:If you are using the Out of Band interface you must include oobm.
 
@@ -73,7 +66,27 @@ copy tftp config <dest-file> <ip-addr> <remote-file> <pc | unix> [oobm]
 
 This example copies switch.wri from the tftp server 10.20.2.79 to the startup-config
 
-
 `
 copy tftp startup-config 10.20.2.79 switch.wri oobm
 `
+
+**Configuration Restore**
+
+You can do a live restore from a file in flash or on a tftp/sftp server to the running-config. 
+
+While the restore is in progress all processes are blocked from making changes:
+
+* other CLI sessions
+* the Web UI
+* SNMP
+* REST
+
+
+`cfg-restore flash backup
+`
+
+
+
+# Reference
+
+[CONFIGURATION RESTORE WITHOUT REBOOT](https://higherlogicdownload.s3.amazonaws.com/HPE/MigratedAssets/Config_Restore_without_Reboot.pdf)
