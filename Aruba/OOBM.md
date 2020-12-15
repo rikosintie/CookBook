@@ -30,3 +30,36 @@ oobm
 HP-2920-24G-PoEP# ping 10.253.4.1 source oobm
 10.253.4.1 is alive, time = 5 ms
 ```
+
+## Show commands
+
+```
+show oobm
+
+ Global OOBM Configuration 
+  OOBM Enabled           : Yes  
+  OOBM Port Type         : 10/100TX    
+  OOBM Interface Status  : Up              
+  OOBM Port              : Enabled     
+  OOBM Port Speed        : Auto        
+  MAC Address            : 98f2b3-fe8881
+  
+
+show oobm ip
+
+  IPv4 Status          : Enabled 
+  IPv4 Default Gateway : 10.253.4.1                                    
+
+        |                                     Address  Interface
+ Member | IP Config IP Address/Prefix Length  Status   Status   
+ ------ + --------- ------------------------- -------- ---------
+ Global | manual    10.253.7.11/22                     Up       
+ 
+show oobm arp
+
+ OOBM IP ARP table 
+
+  IP Address       MAC Address       Type    Port
+  ---------------  ----------------- ------- ----
+  10.253.4.1       3822d6-6441c9     Dynamic oobm
+  ```
