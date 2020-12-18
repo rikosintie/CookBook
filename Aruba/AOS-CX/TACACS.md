@@ -1,7 +1,9 @@
-# Clearpass server is at 10.10.10.50
+# Configure AOS-CX switches to use TACACS authentication
+
+Clearpass server is at 10.10.10.50
 
 ```
-tacacs-server key plaintext C0RGR33NF!3LD
+tacacs-server key plaintext SuperS3cr3t!
 !
 !
 tacacs-server host 10.10.10.50 tracking enable
