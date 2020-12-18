@@ -7,7 +7,7 @@ So far only Aruba switches.
 
 I plan to add Aruba AOS-CX and Cisco to the repo.
 
-CLick the "Watch" button at the top right to be  notified when new content is added.
+Click the "Watch" button at the top right to be  notified when new content is added.
 
 
 I got the idea from this blog
