@@ -1,6 +1,6 @@
 # Network Device Cook Books
 
-![Network](/Aruba/images/Network-Diagram-Template-of-a-Office-Network-on-a-Single-Subnet.png)
+![Network](/Aruba/images/Network-Topology-Diagram-Template-small-1.png)
 
 
 So far only Aruba switches. 
