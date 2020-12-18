@@ -6,7 +6,7 @@ Clearpass server is at 10.20.100.50
 tacacs-server key plaintext SuperS3cr3t!
 !
 !
-tacacs-server host 10.10.100.50 tracking enable
+tacacs-server host 10.20.100.50 tracking enable
 tacacs-server timeout 30
 
 aaa group server tacacs CPPM-TACACS-GRP
