@@ -37,7 +37,7 @@ Stack ID         : NO ID - will merge upon connectivity
 ```
 
 
-Notice the the ID isn't set. Run the following to give switch 1 ID 1
+Notice the the ID isn't set. Run the following to set the stack ID to 1
 
 `switch(config)#stacking set-stack
 `
