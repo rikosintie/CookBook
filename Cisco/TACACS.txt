@@ -1,0 +1,60 @@
+aaa new-model
+!
+!
+aaa group server tacacs+ Customer
+ server name Customer
+ server name Customer1
+ server name Customer2
+!
+aaa authentication fail-message ^CCCCCC Access Denied TACACS+ authentication failure^C
+aaa authentication login default group tacacs+ local
+aaa authentication login tacacs-login group tacacs+ local
+aaa authentication login Customer group tacacs+ local
+aaa authorization config-commands
+aaa authorization exec default group tacacs+ local if-authenticated
+aaa authorization commands 0 default group tacacs+ local if-authenticated
+aaa authorization commands 3 default group tacacs+ local if-authenticated
+aaa authorization commands 15 default group tacacs+ local if-authenticated
+aaa accounting exec default start-stop group tacacs+
+aaa accounting commands 0 default start-stop group tacacs+
+aaa accounting commands 3 default start-stop group tacacs+
+aaa accounting commands 15 default start-stop group tacacs+
+aaa accounting system default start-stop group tacacs+
+!
+!
+!
+!
+!
+!
+aaa session-id common
+
+tacacs server Customer
+ address ipv4 10.56.239.168
+ key 7 0037312531682F3930354D4D
+tacacs server Customer1
+ address ipv4 10.56.239.169
+ key 7 0037312531682F3930354D4D
+tacacs server Customer2
+ address ipv4 10.56.239.170
+ key 7 0037312531682F3930354D4D
+ 
+ line con 0
+ exec-timeout 30 0
+ logging synchronous
+ login authentication Customer
+ 
+line vty 0 4
+ exec-timeout 30 0
+ logging synchronous
+ login authentication Customer
+ transport preferred ssh
+ transport input ssh
+ transport output telnet ssh
+ 
+line vty 5 15
+ exec-timeout 30 0
+ logging synchronous
+ login authentication Customer
+ transport preferred ssh
+ transport input ssh
+ transport output telnet ssh
