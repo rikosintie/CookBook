@@ -3,9 +3,7 @@
 ![Network](/Aruba/images/Network-Topology-Diagram-Template-small-1.png)
 
 
-So far only Aruba switches. 
-
-I plan to add Aruba AOS-CX and Cisco to the repo.
+I plan to have Aruba Provision, Aruba AOS-CX, Cisco IOX-XE and Cisco IOS to the repo.
 
 Click the "Watch" button at the top right to be  notified when new content is added.
 
