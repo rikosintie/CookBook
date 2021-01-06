@@ -1,15 +1,11 @@
 # Create a "Message of the Day" banner
 
+The Aruba Provision is a little different than Cisco. You need to go into "non-Interactive mode" first.
 ```
-banner motd "********************************************************************************\n                             
- NOTICE TO USERS\n
- \nThis is an official computer system and is the property of <insert customer name>. Unauthorized users are prohibited. 
- Users (authorized or unauthorized) have no explicit or implicit expectation of privacy. Any or all uses of this system may
- be subject to one or more of the following actions: interception, monitoring, recording, auditing, inspection and disclosing
- to security personnel and law enforcement personnel. By using this system, the user consents to these actions.
- 
- Unauthorized or improper use of this system may result in administrative disciplinary action and civil and criminal penalties. 
- By accessing this system you indicate your awareness of and consent to these terms and conditions of use. 
- Discontinue access immediately if you do not agree to the conditions stated in this notice.
- \n********************************************************************************\n"
+session interactive-mode disable
+
+banner motd "                ******************************************\n                *     Unauthorized access prohibited     *\n                ****************************************** \n                            Customer Name\n\n                You have reached a Customer name device.\n                **************Warning ********************\nThis system is for the use of authorized clients only. Individuals using the\ncomputer network system without authorization, or in excess of their\nauthorization, are subject to having all their activity on this computer \nnetwork system monitored and recorded by system personnel. B To protect the \ncomputer network system from unauthorized use and to ensure the computer \nnetwork systems is functioning properly, system administrators monitor this \nsystem. B Anyone using this computer network system expressly consents to such \nmonitoring and is advised that if such monitoring reveals possible conduct of \ncriminal activity, system personnel may provide the evidence of such activity \nto law enforcement officers.\n \nAccess is restricted to authorized users only.\nUnauthorized access, attempted access, or use of any computing system is a \nviolation of Section 502 of the California Penal code and/or applicable Federal\nLaw, and is subject to prosecution.\n"
+
+session interactive-mode enable
+
  ```
