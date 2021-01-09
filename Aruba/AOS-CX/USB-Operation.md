@@ -20,4 +20,5 @@ To copy a file from the flash drive to the primary flash:
 ```
 copy usb:/ArubaOS-CX_8325_10_05_0021.swi primary
 usb unmount
+boot system primary
 ```
