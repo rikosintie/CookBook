@@ -23,6 +23,7 @@ aaa accounting all-mgmt default start-stop group CPPM-TACACS-GRP
 
 ```
 sh aaa server-groups
+sh tacacs-server detail
 
 sh run | i aaa
 aaa authentication allow-fail-through
