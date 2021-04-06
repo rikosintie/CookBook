@@ -20,9 +20,11 @@ dhcp-server pool "Wireless-mgmt"
 dhcp-server conflict-logging
 dhcp-server enable
 ```
+<br/>
+
 **Vlan configuration**
 
-The command "dhcp-server" must be added to the vlan tha the server will provide addresses for
+The command "dhcp-server" must be added to the vlan that the server will provide addresses for
 
 ```
 vlan 254
