@@ -76,7 +76,7 @@ clear dhcp-server conflicts <IP-ADDR>
 **Description**
 * Reset DHCPv4 server conflicts database. If IP address is specified, reset only that conflict.
 
-**Parameters**
+**Parameters**  
 dhcp-server
 
 * Clears the DHCPv4 server information.
