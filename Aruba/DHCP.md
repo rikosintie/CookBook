@@ -65,13 +65,12 @@ pool
 
 <br/>
 <br/>
-<br/>
 
 ## Clear commands ##
 
-## clear dhcp-server conflicts ##
+### clear dhcp-server conflicts ###
 
-**Syntax**
+**Syntax**  
 clear dhcp-server conflicts <IP-ADDR>
 
 **Description**
@@ -86,9 +85,9 @@ ip-addr
 
 * Specify the IP address whose conflict is to be cleared.
 
-## Reset all DHCP server and BOOTP counters ##
+### Reset all DHCP server and BOOTP counters ###
 
-**Syntax**
+**Syntax**  
 clear dhcp-server statistics
 
 **Description**
