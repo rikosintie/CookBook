@@ -33,5 +33,66 @@ vlan 254
    dhcp-server
    exit
 ```
+<br/>
+
+## Show commands ##
+
+show dhcp-server [binding|conflicts|database|statistics|pool <POOL-NAME>]
+
+**Parameters and options**
+
+binding
+
+* Display the DHCPv4 server address bindings on the device.
+
+conflicts
+
+* Display address conflicts found by a DHCPv4 server when addresses are offered by a client.
+
+database
+
+* Display DHCPv4 server database agent information.
+
+statistics
+
+* Display DHCPv4 server statistics.
+
+pool
+ 
+* <POOL-NAME> Display the DHCPv4 server IP pool information
+
+<br/>
+<br/>
+<br/>
+
+## Clear commands ##
+
+## clear dhcp-server conflicts ##
+
+**Syntax**
+clear dhcp-server conflicts <IP-ADDR>
+
+**Description**
+* Reset DHCPv4 server conflicts database. If IP address is specified, reset only that conflict.
+
+**Parameters**
+dhcp-server
+
+* Clears the DHCPv4 server information.
+
+ip-addr
+
+* Specify the IP address whose conflict is to be cleared.
+
+## Reset all DHCP server and BOOTP counters ##
+
+**Syntax**
+clear dhcp-server statistics
+
+**Description**
+
+* Reset all DHCP server and BOOTP counters
+
+
 
 
