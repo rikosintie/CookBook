@@ -4,11 +4,11 @@ If any of the following IPv6-enabling commands are configured on a VLAN, IPv6 re
 
 To disable IPv6 on a VLAN, the following commands must be removed from the VLAN's configuration:
 
-ipv6 enable
-ipv6 address dhcp full [rapid-commit]
-ipv6 address autoconfig
-ipv6 address fe80::<interface-id> link-local
-ipv6 address <prefix>:<interface-id>
+* ipv6 enable
+* ipv6 address dhcp full [rapid-commit]
+* ipv6 address autoconfig
+* ipv6 address fe80::<interface-id> link-local
+* ipv6 address <prefix>:<interface-id>
 
 If any of the above remain enabled, IPv6 remains enabled on the VLAN and, at a minimum, a link-local unicast address is present.
 
