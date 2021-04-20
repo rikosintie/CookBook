@@ -26,6 +26,8 @@ Internet (IPv6) Service
   ---------- + ------------------------------------------- -----------
   autoconfig | fe80::8a3a:30ff:fe76:8a00/64                preferred
 
+conf t
+(config)# vlan 1
 no ipv6 address fe80::8a3a:30ff:fe76:8a00/64
 no ipv6 add
 no ipv6 address fe80::8a3a:30ff:fe76:8a00 link-local
