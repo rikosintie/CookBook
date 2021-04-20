@@ -14,6 +14,7 @@ If any of the above remain enabled, IPv6 remains enabled on the VLAN and, at a m
 
 Example
 
+```
 show management
 Internet (IPv6) Service
 
@@ -29,3 +30,4 @@ no ipv6 address fe80::8a3a:30ff:fe76:8a00/64
 no ipv6 add
 no ipv6 address fe80::8a3a:30ff:fe76:8a00 link-local
 no ipv6 address dhcp full
+```
