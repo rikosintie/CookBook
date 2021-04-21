@@ -2,7 +2,7 @@
 
 Aliases are a great time saver if you run the same commands on a regular basis.
 
-To create and alias:
+To create an alias:
 * Enter global configuraiton mode
 * Enter a name, then the command surrounded by ".
 
