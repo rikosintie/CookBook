@@ -30,6 +30,24 @@ Configuration files:
 ```
 <p>&nbsp;</p>
 
+**Manually create a backup**
+```
+test# copy config config1 config backup-test
+
+
+test# sh config files
+
+Configuration files:
+
+ id | act pri sec | name
+ ---+-------------+------------------------------------------------
+  1 |  *   *   *  | config1
+  2 |             | backup-test
+  3 |             |
+  4 |             |
+  5 |             |
+```
+
 **Review a configuration file**
 
 `
@@ -40,7 +58,7 @@ show config backup
 **Compare running-config to a file in flash**
 
 `
-cfg-restore flash backup diff 
+test(config)#cfg-restore flash backup diff 
 `
 
 <p>&nbsp;</p>
@@ -48,7 +66,7 @@ cfg-restore flash backup diff
 **Delete a config file**
 
 ```
-erase config backup
+test#erase config backup
 ```
 
 If you delete the configuration file that is active, the switch will reload.
@@ -64,7 +82,7 @@ boot system flash primary config backup
 
 **Copy the backup configuration from a TFTP server**
 
-Note:If you are using the Out of Band interface you must include oobm.
+Note: If you are using the Out of Band interface you must include oobm.
 
 The format is: 
 
@@ -92,7 +110,7 @@ While the restore is in progress all processes are blocked from making changes:
 * REST
 
 
-`cfg-restore flash backup
+`test(config)#cfg-restore flash backup
 `
 
 <p>&nbsp;</p>
