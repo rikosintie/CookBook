@@ -14,11 +14,47 @@ You will be prompted for:
 * State Name
 * Country Code
 
+If `crypto host-cert` is not found use the following. Change the values to match your deployment.
+
+``` crypto pki enroll-self-signed certificate-name MPH-MDF-5
+412 key-type rsa key-size 2048 subject common-name Staff Org RIM-USD Org-unit IT
+ State CA Country US Locality Lake_Arrowhead valid-start 04/28/2021 val
+MPH-COMP-5412(config)# crypto pki enroll-self-signed certificate-name MPH-COMP-5
+412 key-type rsa key-size 2048  Org RIM-USD Org-unit IT
+ State CA Country US Locality Lake_Arrowhead valid-start 04/28/2021 valid-end 04
+/28/2025
+```
+You probably won't be able to paste that as one long command. My experience is that you will have to type the entire line.
+
+To show the identity-profile:
+```
+show crypto pki identity-profile
+Switch Identity:
+  ID Profile Name    : Default
+    Common Name (CN) : Staff
+    Org Unit (OU)    : IT
+    Org Name (O)     : RIM-USD
+    Locality (L)     : Lake_Arrowhead
+    State (ST)       : CA
+    Country (C)      : US
+    ```
+
+To show the certificate
+```
+show crypto pki local-certificate
+   Name                 Usage         Expiration     Parent / Profile
+   -------------------- ------------- -------------- --------------------
+   MPH-COMP-5412        Web           2025/04/28     default
+```
+
 **Disable http and enable https:**
 ```
 no web-management
 web-management ssl
 ```
+
+To remove all all certificates, related private keys, ta profiles and switch identity profiles, enter
+`crypto pki zeroize`
 
 **Remove weak ciphers**
 
