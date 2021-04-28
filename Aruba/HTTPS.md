@@ -37,7 +37,7 @@ Switch Identity:
     Locality (L)     : Lake_Arrowhead
     State (ST)       : CA
     Country (C)      : US
-    ```
+```
 
 To show the certificate
 ```
