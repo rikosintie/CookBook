@@ -16,13 +16,10 @@ You will be prompted for:
 
 If `crypto host-cert` is not found use the following. Change the values to match your deployment.
 
-``` crypto pki enroll-self-signed certificate-name MPH-MDF-5
-412 key-type rsa key-size 2048 subject common-name Staff Org RIM-USD Org-unit IT
- State CA Country US Locality Lake_Arrowhead valid-start 04/28/2021 val
-MPH-COMP-5412(config)# crypto pki enroll-self-signed certificate-name MPH-COMP-5
-412 key-type rsa key-size 2048  Org RIM-USD Org-unit IT
- State CA Country US Locality Lake_Arrowhead valid-start 04/28/2021 valid-end 04
-/28/2025
+``` 
+crypto pki enroll-self-signed certificate-name MPH-COMP-5412 key-type rsa key-size 2048  
+Org RIM-USD Org-unit IT State CA Country US Locality Lake_Arrowhead 
+valid-start 04/28/2021 valid-end 04/28/2025
 ```
 You probably won't be able to paste that as one long command. My experience is that you will have to type the entire line.
 
