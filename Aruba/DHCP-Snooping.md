@@ -66,6 +66,17 @@ To enable debug logging for DHCP snooping, use this command.
 * event - Displays DHCP snooping event messages.
 * packet - Displays DHCP snooping packet messages.
 
+To display the debug messages on the console
+```
+test#debug destination ?
+ logging               Send debug messages to syslog server.
+ session               Print debug messages to terminal.
+ buffer                Print debug messages to a buffer in memory.
+
+test# debug destination session
+```
+
+
 **A tool for conducting a DHCP Exhaution attack**
 DHCPig is a free, open source tool for testing DHCP security. It's worth your time to grab it, set up a lab, and run wireshark
 while you test your DHCP security. DHCP fingerprinting is a key component in modern security components like Clearpass. The more you know about
