@@ -21,7 +21,8 @@ crypto pki enroll-self-signed certificate-name MPH-COMP-5412 key-type rsa key-si
 subject common-name Staff Org RIM-USD Org-unit IT State CA Country US Locality Lake_Arrowhead 
 valid-start 04/28/2021 valid-end 04/28/2025
 ```
-You probably won't be able to paste that as one long command. My experience is that you will have to type the entire line.
+To enter this string, make sure there are no carriage returns or line feeds in it. If you copy it from the webpag, paste it into a text editor and remove the CR LF characters. Or just type the data into the cli. You can tab complete for each section.
+
 
 To show the identity-profile:
 ```
