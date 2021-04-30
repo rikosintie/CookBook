@@ -58,6 +58,9 @@ show dhcp-snooping stats
 ## Enabling debug logging
 To enable debug logging for DHCP snooping, use this command.
 
+If you set the terminal width to 100 or 110, the logging will be easier to read.
+`
+
 **Syntax:**
 
 [no]debug security dhcp-snooping [agent|event|packet]
@@ -75,7 +78,11 @@ test#debug destination ?
 
 test# debug destination session
 ```
+If you set the terminal width to 100 or 110 the logging messages will be easier to read:
+`terminal width 110`
 
+I also like to set the terminal length to 55 or 60 so that I can see more at one time.
+`terminal length 60`
 
 **A tool for conducting a DHCP Exhaution attack**
 DHCPig is a free, open source tool for testing DHCP security. It's worth your time to grab it, set up a lab, and run wireshark
