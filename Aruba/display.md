@@ -31,5 +31,5 @@ You can use repeat command to know when the member is up.
 show stacking
 repeat
 ```
-Repeat is useful anytime you are waiting for something to happen. Another example is waiting for an OSPB neighbor relationship to come online.
+Repeat is useful anytime you are waiting for something to happen. Another example is waiting for an OSPF neighbor relationship to come online.
 
