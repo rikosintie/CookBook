@@ -4,7 +4,7 @@ The Aruba provision switches are slightly different than Cisco when it comes to 
 
 **Disable paging**
 
-When I'm displaying the running configuration and other outputs to backup/figure out the switches operation I don't want to be htting the space bar repeatedly.
+When I'm displaying the running configuration and other outputs to backup/figure out the switches operation I don't want to be hitting the space bar repeatedly.
 
 Use the command `no page` to disable paging.
 
@@ -15,11 +15,11 @@ When you are done, just enter `paging` to re-enable paging.
 I like to have my terminal application extended top to bottom on the screen. 
 This leaves the output from the switch filling about half the screen. 
 To fix that use `terminal length 55` to set the output to 55 lines. You may
-have to adjust between 50-60 depending but it's much better than teh default.
+have to adjust between 50-60 depending but it's much better than the default.
 
 **Set the terminal width**
 
-I find it a lot easier to read the out of commands if they aren't wrapping on the screen. This is especailly true for the log. 
+I find it a lot easier to read the out of commands if they aren't wrapping on the screen. This is especially true for the log. 
 To solve the wrapping issue use `terminal width 150`. Depending on your monitor you may have to adjust this.
 
 **Repeat the last command**
@@ -31,5 +31,5 @@ You can use repeat command to know when the member is up.
 show stacking
 repeat
 ```
-Repeat is useful anytime you are waiting for something to happen. Anohter exmaple is waiting for an OSPB neighbor relationship to come online.
+Repeat is useful anytime you are waiting for something to happen. Another example is waiting for an OSPB neighbor relationship to come online.
 
