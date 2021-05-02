@@ -1,4 +1,4 @@
-# display commands
+# Display commands
 
 The Aruba provision switches are slightly different than Cisco when it comes to setting the cli display characteristics.
 
