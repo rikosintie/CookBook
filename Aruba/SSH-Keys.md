@@ -112,7 +112,7 @@ show crypto client-public-key manager
 
 You can also setup Operator level access. To do that use `ip ssh public-key operator` instead of manager
 
-**log in**<br/>
+**Log in**<br/>
 On Mac/Linux just add the path to the private key. For example, using a switch with IP 10.112.250.40. If you use the default id_rsa key you don't even have to enter the
 path, the ssh client will default to it. But I like to create a key and name it for the specific purpose. In this case I named my keys hubbard:
 ```
