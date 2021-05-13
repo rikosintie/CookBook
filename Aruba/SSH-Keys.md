@@ -131,6 +131,8 @@ Any violations of access policy will result in disciplinary action.
 Enter passphrase for key '/Users/mhubbard/.ssh/hubbard':
 Press any key to continue
 ```
+**Note:** You can enable ssh keys and still use username/password. If your client doesn't have your private key, it will just use the username/password created on the switch. The HPE document in the reference section explains how to prevent username/password logins if you have ssh public key enabled.<br/>
+
 
 On Windows, you are probably using a client like SecureCRT, follow their instructions to add the key to the connection. 
 This is usually a simple "Click a button and browse" operation.
