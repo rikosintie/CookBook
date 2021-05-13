@@ -1,6 +1,6 @@
 # Using SSH keys for Authentication 
 
-The Procurve switches allow you to use SSH keys instead of a username/password to login. <br/>
+The HPE/Aruba Procurve switches allow you to use SSH keys instead of a username/password to login. <br/>
 
 Why would you want to do this? It's more secure than using a username/password because you have to have the matching private key. 
 You only need one private/public key pair. You can use the public key as many
