@@ -23,10 +23,10 @@ The port that the DHCP server is connected to must be "trusted".
 Ports to downstream switches must also be trusted. 
 
 
-In this example, ports 8-9 are connected to the DHCP server and the upstream switche.
+In this example, ports 8-10 are connected to the DHCP server and the upstream switche.
 
 ```
-dhcp-snooping trust 8-9
+dhcp-snooping trust 8-10
 ```
 
 ## DHCP binding database 
