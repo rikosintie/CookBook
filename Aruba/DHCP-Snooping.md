@@ -5,24 +5,28 @@ The authorized server is the authorized DHCP server for the organization. If the
 
 In this example:
 
-* Authorized DHCP Server - 10.20.20.26
-* Vlans to enable DHCP Snooping on - 2, 4-10, 15
+* Authorized DHCP Server - 10.112.47.5
+* Authorized DHCP Server - 10.112.105.254
+* Authorized DHCP Server - 10.112.250.254
+* Vlans to enable DHCP Snooping on - 1 105 253-254
 
 ```
 HP-2920-24G-PoEP(config)# dhcp-snooping
-HP-2920-24G-PoEP(config)# dhcp-snooping authorized-server 10.20.20.26
+HP-2920-24G-PoEP(config)# dhcp-snooping authorized-server 10.112.47.5
+HP-2920-24G-PoEP(config)# dhcp-snooping authorized-server 10.112.105.254
+HP-2920-24G-PoEP(config)# dhcp-snooping authorized-server 10.112.250.254
 HP-2920-24G-PoEP(config)# no dhcp-snooping option 82
-HP-2920-24G-PoEP(config)# dhcp-snooping vlan 2 4-10 15
+HP-2920-24G-PoEP(config)# dhcp-snooping vlan 1 105 253-254
 ```
 
 The port that the DHCP server is connected to must be "trusted".
 Ports to downstream switches must also be trusted. 
 
 
-In this example, ports 4-7 are connected to the DHCP server and three downstream switches.
+In this example, ports 8-9 are connected to the DHCP server and the upstream switche.
 
 ```
-dhcp-snooping trust 4,5,6,7
+dhcp-snooping trust 8-9
 ```
 
 ## DHCP binding database 
@@ -54,7 +58,52 @@ show dhcp-snooping
 show dhcp-snooping binding
 show dhcp-snooping stats
 ```
+## Example Show Commands 
 
+ **show dhcp-snooping** 
+```
+ DHCP Snooping Information
+
+  DHCP Snooping              : No 
+
+  sh dhcp-snooping 
+
+ DHCP Snooping Information
+
+  DHCP Snooping              : Yes
+  Enabled VLANs              : 1 105 254                                
+  Verify MAC address         : Yes
+  Option 82 untrusted policy : drop   
+  Option 82 insertion        : No 
+  Store lease database       : Not configured
+
+  Authorized Servers
+  ------------------
+  10.112.47.5       
+  10.112.105.254    
+  10.112.250.254    
+ 
+
+                  Max     Current Bindings
+   Port  Trust  Bindings  Static   Dynamic
+  -----  -----  --------  ----------------
+    8.    Yes.     -        -        -
+    9     Yes      -        -        -   
+    10    Yes      -        -        -   
+
+  Ports 1-7 are untrusted
+``` 
+ 
+ **show dhcp-snooping bin**
+```
+  MacAddress    IP              VLAN Interface Time Left
+  ------------- --------------- ---- --------- ---------
+  185e0f-a0c2de 10.112.44.83    1    1         84226    
+  346895-1a3fb2 10.112.44.164   1    2         85616    
+  0c84dc-5bd789 10.112.105.231  105  1         9813     
+  b45d50-ceeb7d 10.112.250.36   254  2         13110 
+ ```
+ 
 ## Enabling debug logging
 To enable debug logging for DHCP snooping, use this command.
 
