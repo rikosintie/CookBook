@@ -90,7 +90,7 @@ show dhcp-snooping stats
                   Max     Current Bindings
    Port  Trust  Bindings  Static   Dynamic
   -----  -----  --------  ----------------
-    8.    Yes.     -        -        -
+    8     Yes      -        -        -
     9     Yes      -        -        -   
     10    Yes      -        -        -   
 
