@@ -62,11 +62,14 @@ show dhcp-snooping stats
 
  **show dhcp-snooping** 
 ```
+ Disbled
+ 
  DHCP Snooping Information
 
   DHCP Snooping              : No 
 
-  sh dhcp-snooping 
+ Enabled
+  show dhcp-snooping 
 
  DHCP Snooping Information
 
