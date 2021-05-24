@@ -128,7 +128,7 @@ test#debug destination ?
  session               Print debug messages to terminal.
  buffer                Print debug messages to a buffer in memory.
 
-test# debug destination session
+debug destination session
 ```
 If you set the terminal width to 100 or 110 the logging messages will be easier to read:
 `terminal width 110`
