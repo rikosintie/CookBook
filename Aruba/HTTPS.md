@@ -117,3 +117,6 @@ To verify what ciphers the switch offers use this nmap script:
 ```
 nmap --script ssl-cert,ssl-enum-ciphers -p 443 <switch ip>
 ```
+
+## Reference <br/>
+[How to strengthen cipher suites for HTTPS on ArubaOS-Switches](https://community.arubanetworks.com/community-home/digestviewer/viewthread?MID=25863)
