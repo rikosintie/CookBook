@@ -1,7 +1,6 @@
 <a href="https://mwhubbard.blogspot.com"><img alt="GitHub" src="https://img.shields.io/github/license/rikosintie/CookBook"></a>
 <a href="https://twitter.com/rikosintie"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/rikosintie?style=social"></a>
 
-
 # Display commands
 
 The Aruba provision switches are slightly different than Cisco when it comes to setting the cli display characteristics.
