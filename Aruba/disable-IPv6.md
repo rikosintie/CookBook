@@ -1,4 +1,7 @@
-Aruba 5412r disable ipv6 on vlan
+<a href="https://mwhubbard.blogspot.com"><img alt="GitHub" src="https://img.shields.io/github/license/rikosintie/CookBook"></a>
+<a href="https://twitter.com/rikosintie"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/rikosintie?style=social"></a>
+
+# Aruba 5412r disable ipv6 on vlan
 
 If any of the following IPv6-enabling commands are configured on a VLAN, IPv6 remains enabled on that VLAN. 
 
