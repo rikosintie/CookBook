@@ -1,3 +1,6 @@
+<a href="https://mwhubbard.blogspot.com"><img alt="GitHub" src="https://img.shields.io/github/license/rikosintie/CookBook"></a>
+<a href="https://twitter.com/rikosintie"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/rikosintie?style=social"></a>
+
 # Configuring ARP-Protect #
 
 ARP-Protect uses the IP to Mac address mapping created by DHCP Snooping to prevent L2 Man in The Middle attacks. It takes a bit more planning 
