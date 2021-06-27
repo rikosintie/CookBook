@@ -1,3 +1,6 @@
+<a href="https://mwhubbard.blogspot.com"><img alt="GitHub" src="https://img.shields.io/github/license/rikosintie/CookBook"></a>
+<a href="https://twitter.com/rikosintie"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/rikosintie?style=social"></a>
+
 # Configure https and remove weak ciphers
 
 **Create the self signed certificate**
@@ -18,10 +21,14 @@ If `crypto host-cert` is not found use the following. Change the values to match
 
 ``` 
 crypto pki enroll-self-signed certificate-name MPH-COMP-5412 key-type rsa key-size 2048  
-subject common-name Staff Org RIM-USD Org-unit IT State CA Country US Locality Lake_Arrowhead 
+subject common-name Staff Org RIM-USD Org-unit IT State CA Country US Locality "Lake Arrowhead" 
 valid-start 04/28/2021 valid-end 04/28/2025
 ```
-To enter this string, make sure there are no carriage returns or line feeds in it. If you copy it from the webpag, paste it into a text editor and remove the CR LF characters. Or just type the data into the cli. You can tab complete for each section.
+To enter this string, make sure there are no carriage returns or line feeds in it. If you copy it from the webpage, paste it into a text editor and remove the CR LF characters. Or just type the data into the cli. You can tab complete for each section.
+
+NOTE: Underscores are not valid in the string. If you want some separation between two words use double quotes and a space:  "Lake Arrowhead"
+
+The switch won't error but Google Chrome will refuse to open the page.
 
 
 To show the identity-profile:
