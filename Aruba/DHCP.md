@@ -1,6 +1,7 @@
 <a href="https://mwhubbard.blogspot.com"><img alt="GitHub" src="https://img.shields.io/github/license/rikosintie/CookBook"></a>
 <a href="https://twitter.com/rikosintie"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/rikosintie?style=social"></a>
 
+
 # Configuring DHCP on a Provision switch #
 
 In this example I need to configure some Aruba access points. I was in the burn in room and used the switch I was connecting the APs to as a DHCP server.
