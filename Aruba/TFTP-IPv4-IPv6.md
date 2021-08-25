@@ -10,7 +10,7 @@ In my case, I use Linux or macOS and I have the lldp daemon running.
 
 If you are on Windows can install [Open LLDP Client for Windows](https://github.com/chall32/LDWin)
 
-If you can't run an lldp daemon then you can console into the switch to find the address. 
+If you can't run an lldp daemon, then you can console into the switch and run `show management` to find the ipv6 address.
 
 Here is the output of the **lldp** daemon on my MacBook:
 ```
@@ -36,11 +36,11 @@ Interface:    en12, via: LLDP, RID: 2, Time: 0 day, 00:16:06
     TLV:          OUI: 00,16,B9, SubType: 2, Len: 2 00,01
 ```
 
-You can see that the switch has link local address fe80::124f:58ff:fef0:e340.</br>
+You can see that the switch has a link local address of fe80::124f:58ff:fef0:e340.</br>
 
 
 ### Use THC-IPv6 to find the IPv6 address</br>
-There is a great IPv6 pentesting project called [thc-ipv6](https://github.com/vanhauser-thc/thc-ipv6)</br>
+There is an IPv6 pentesting project called [thc-ipv6](https://github.com/vanhauser-thc/thc-ipv6)</br>
 
 It has a tool called `detect-new-ip6` that listens for ICMP6 DAD (duplicate address detection) packets and displays them. 
 
@@ -53,7 +53,7 @@ Started ICMP6 DAD detection (Press Control-C to end) ...
 Detected new ip6 address: fe80::66e8:81ff:fe17:3280
 ```
 
-THC-IPv6 also includes a tool called `alive6` that quickly scans for link local addresses. Very useful if you connect several switches and want to find the ipv6 address.
+THC-IPv6 also includes a tool called `alive6` that quickly scans for link local addresses. Very useful if you connect several switches and want to find the ipv6 addresses of all of them.
 
 The Kali guys have some examples of how to use thc-ipv6 at [THC-IPV6 Package Description](https://tools.kali.org/information-gathering/thc-ipv6)
 
@@ -71,6 +71,7 @@ RSA key fingerprint is SHA256:3png59nIWVKJUf7YefNQ8eI7bNzTdb/BJFY8FNZpKR4.
 Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
 Warning: Permanently added 'fe80::124f:58ff:fef0:e340%en12' (RSA) to the list of known hosts.
 ```
+Note the %en12 after the link local address. You have to append a % and the interface name to use ipv6. In this case, my USB ethernet adapter mounted as en12. 
 
 ### To copy firmware to the primary flash</br>
 
