@@ -89,21 +89,3 @@ When that completes, copy the firmware to the secondary flash
 Now boot to the new firmware
 
 `boot system flash primary`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
