@@ -125,6 +125,13 @@ show dhcp-snooping stats
  client       drop     failed on max-binding limit    0
 ``` 
  
+ **Clear the DHCP-snooping statistics**</br>
+ If you are making changes or troubleshooting dhcp-snooping you will want to clear the statistics.
+ 
+ ```
+ clear dhcp-snooping statistics
+ ```
+ 
 ## Enabling debug logging
 To enable debug logging for DHCP snooping, use this command.
 
