@@ -110,6 +110,21 @@ show dhcp-snooping stats
   b45d50-ceeb7d 10.112.250.36   254  2         13110 
  ```
  
+ **show dhcp-snooping stats**
+```
+ Packet type  Action   Reason                        Count
+ -----------  -------  ----------------------------  ---------
+ server       forward  from trusted port              26665
+ client       forward  to trusted port                303641
+ server       drop     received on untrusted port     0
+ server       drop     unauthorized server            0
+ client       drop     destination on untrusted port  0
+ client       drop     untrusted option 82 field      0
+ client       drop     bad DHCP release request       0
+ client       drop     failed verify MAC check        0
+ client       drop     failed on max-binding limit    0
+``` 
+ 
 ## Enabling debug logging
 To enable debug logging for DHCP snooping, use this command.
 
