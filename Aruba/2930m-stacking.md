@@ -23,7 +23,7 @@ enables you to use a single IP address and standard network cabling to manage a 
 **NOTE:**
 > In the default configuration, stacking is enabled on these switches. However, if a 2930M switch is powered on and it does not have a Stacking Module installed, 
 >stacking is disabled. If a Stacking Module is subsequently installed in the switch, stacking must be enabled from the switch CLI (in the configuration context) 
-> by entering the following command:
+> by entering the following command:</br>
 `
 switch(config)# stacking enable
 `
@@ -58,16 +58,103 @@ At this point, power on switch two and let it completely boot. This switch will 
 ![](/Aruba/images/2930M-Stack-Topo.png)
 <p>&nbsp;</p>
 
-Only power up one switch at a time. Check the progress of the new switch using 
+Only power up one switch at a time. Check the progress of the new switch using </br>
 `show stacking
 `
 
-**show commands**
+You can use the "repeat" command to monitor the switches starting up</br>
 ```
 show stacking
+repeat
+```
+</br>Every 2 seconds the stacking command will be repeated. You can modify the repeat command with:
+```
+repeat 
+ CMDLIST               The command number to repeat.
+ count                 The number of times to repeat the command.
+ delay                 The delay in seconds between command repeats.
+ <cr>
 ```
 
-Continue powering up the one switch at a time until all switches are online and in the stack.
+
+**Removing a member**</br>
+If you want to remove a member from the stack use:
+```
+(config)# stacking member 2 remove
+The specified stack member will be removed from the stack and 
+its configuration will be erased. The resulting configuration 
+will be saved. Continue [y/n]? y
+```
+
+There are more configuration commands availble: </br>
+```
+stacking ?
+ disable               Disables stacking on the switch and prevents it from joining or creating a stack.
+ enable                Enables stacking on the switch with the specified priority and preferred member ID for this switch.
+ factory-reset         Erase the startup config and all knowledge of other stack members.
+ member                Specify the stack member to be configured.
+ set-stack             Makes the inactive stack active.
+ split-policy          Sets the split policy of the stack.
+```
+
+**show commands**</br>
+```
+show stacking ?
+ detail                Shows detailed information related to the current state of the stack.
+ member                Shows detailed stacking related information about the specified stack members.
+ stack-ports           Shows the current state of the stacking ports of all the stack members.
+ <cr>
+```
+**show stacking detail**</br> 
+```
+Stack ID         : 03003810-f04d33c0                                                     
+MAC Address      : 38:10:f0:4d:33:ca
+Stack Topology   : Chain                                   
+Stack Status     : Active                                  
+Split Policy     : One-Fragment-Up 
+Uptime           : 0d 0h 23m   
+Software Version : WC.16.10.0016
+
+Name             : OPD-CORE-2930
+Contact          : 
+Location         : 
+```
+**show stacking member**</br>
+```
+show stacking member 
+ STACK-MEMBER-LIST     Enter a list of stack members or one stack-member for the 'members'command/parameter.
+(config)# show stacking member 2
+
+Member ID        : 2 
+Mac Address      : 8c:85:c1:63:b6:00
+Type             : JL322A
+Model            : Aruba JL322A 2930M-48G-PoE+ Switch                          
+Priority         : 128
+Status           : Standby        
+ROM Version      : WC.17.02.0006                                     
+Serial Number    : SG12JQN0ZZ                                                   
+Uptime           : 0d 0h 15m   
+CPU Utilization  : 0%  
+Memory - Total   : 338,244,096 bytes 
+Free             : 192,039,168 bytes 
+Stack Ports - 
+#1 : Active, Peer member 3              
+#2 : Active, Peer member 1
+```
+**show stack-port status**</br>
+```
+show stacking stack-ports 
+  Member Stacking Port State    Peer Member Peer Port
+  ------ ------------- -------- ----------- ---------
+  1      1             Up       2           2        
+  1      2             Down     0           0        
+  2      1             Up       3           2        
+  2      2             Up       1           1        
+  3      1             Down     0           0        
+  3      2             Up       2           1       
+  ```
+</br>
+Continue powering up the one switch at a time until all switches are online and in the stack.</br>
 
 
 
