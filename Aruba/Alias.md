@@ -70,7 +70,7 @@ sii
 
   
   ```
-  spi
+  spb
 
  Status and Configuration Information
 
