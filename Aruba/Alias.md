@@ -65,9 +65,9 @@ sii
   OpenQuery            | Manual     10.50.33.200    255.255.255.0    No    No
   
   ```
-  </br>
+
   **show spb**
-  </br>
+
   
   ```
   spi
@@ -85,7 +85,6 @@ sii
  1/3    Yes  low      off     usage usage  0.0 W   0.0 W   Searching    0    -  
  
  ```
-</br>
 **vlan**
 
 ```
