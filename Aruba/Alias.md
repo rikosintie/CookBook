@@ -66,7 +66,7 @@ sii
   
   ```
 
-  **show spb**
+  **show power-over-ethernet brief**
 
   
   ```
@@ -85,7 +85,7 @@ sii
  1/3    Yes  low      off     usage usage  0.0 W   0.0 W   Searching    0    -  
  
  ```
-**vlan**
+**show vlans custom id ipaddr ipmask state**
 
 ```
 vlan
