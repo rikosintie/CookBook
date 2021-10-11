@@ -1,0 +1,63 @@
+# Configuring a switch to use dynamic segmentation <br>
+
+To use Clearpass with fingerprinting and MAC Address Bypass (MAB), the switch must be setup to send 802.1x requests to the Clearpass server and the port must be configured for 802.1x.  <br>
+
+## Commands need to send requests to the Clearpass server<br>
+NOTE: In this example there are two ClearPass servers in a pair 172.16.120/172.16.1.21 and the VIP is 172.16.1.22<br>
+
+```
+radius-server host 172.16.1.20 key "Sup3rS3cur3"
+radius-server host 172.16.1.20 dyn-authorization
+radius-server host 172.16.1.20 time-window plus-or-minus-time-window
+radius-server host 172.16.1.20 time-window 30
+radius-server host 172.16.1.20 clearpass
+radius-server host 172.16.1.21 key "Sup3rS3cur3"
+radius-server host 172.16.1.21 dyn-authorization
+radius-server host 172.16.1.21 time-window plus-or-minus-time-window
+radius-server host 172.16.1.21 time-window 30
+radius-server host 172.16.1.21 clearpass
+radius-server cppm identity "Super-Secure"
+tacacs-server host 172.16.1.22 key "Sup3rS3cur3"
+radius-server cppm identity "Super-Secure" key Sup3rS3cur3
+
+aaa server-group radius "CPPM-GRP" host 172.16.1.20
+aaa server-group radius "CPPM-GRP" host 172.16.1.21
+aaa accounting update periodic 5
+aaa accounting commands interim-update tacacs
+aaa accounting exec start-stop tacacs
+aaa accounting network start-stop radius server-group "CPPM-GRP"
+aaa accounting system start-stop tacacs
+aaa accounting session-id common
+aaa authorization commands auto
+aaa authorization user-role enable download
+```
+
+
+## Adding aaa to ports 1-48
+
+```
+aaa port-access authenticator 1-48 tx-period 10
+aaa port-access authenticator 1-48 supplicant-timeout 10
+aaa port-access authenticator 1-48 client-limit 2
+aaa port-access authenticator active
+aaa port-access mac-based 1-48
+aaa port-access mac-based 1-48 addr-limit 2
+aaa port-access authenticator 1-48
+```
+
+
+
+## Removing AAA from a port
+If you have a device that cannot be used with 802.1x for some reason, you can remove the commands from just one port. <br>
+The "no" form of the commands doesn't work to remove aaa from a port, you have to set the value to the default. <br>
+
+Here are the commands needed to remove aaa from port 48:
+
+```
+no aaa port-access authenticator 48
+aaa port-access authenticator 48 tx-period 30
+aaa port-access authenticator 48 supplicant-timeout 30
+no aaa port-access authenticator 48 client-limit
+no aaa port-access mac-based 48
+aaa port-access mac-based 48 addr-limit 1
+```
