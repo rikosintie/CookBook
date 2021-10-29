@@ -88,4 +88,47 @@ When that completes, copy the firmware to the secondary flash
 
 Now boot to the new firmware
 
-`boot system flash primary`
+```
+boot system flash primary
+
+This will reboot the system from the primary image.
+
+Continue (y/n)? y
+```
+</br>
+
+## Extra Credit 
+If you are consoled into the switch you can ping the laptop from the switch to verify connectivity.</br>
+
+On the laptop, run the interface display command for your OS.
+* On macOS so it's `ifconfig`
+* On Linux it would be `ip addr`
+* On Windows it would be `ipconfig /all`</br>
+
+My ipv6 link local is `fe80::1c95:d94f:d7c4:eab5`</br>
+
+On the switch you will use the ping6 command just like on Linux/Mac
+```
+test# ping6 fe80::1c95:d94f:d7c4:eab5%vlan1
+fe80::1c95:d94f:d7c4:eab5 is alive, time = 3 ms
+```
+To display the ipv6 link local address of the switch
+```
+test# sh management 
+
+ Status and Counters - Management Address Information
+Interface Name  : DEFAULT_VLAN        
+  IPv6 Status     : Enabled 
+
+  Address    |                                             Address    
+  Origin     | IPv6 Address/Prefix Length                  Status     
+  ---------- + ------------------------------------------- -----------
+  autoconfig | fe80::66e8:81ff:fe43:cc48/64                preferred  
+  ```
+### To ping the switch from the MacBook </br>
+```
+ping6 fe80::66e8:81ff:fe43:cc48%en11                                                                                                  [16:27:02]
+PING6(56=40+8+8 bytes) fe80::1c95:d94f:d7c4:eab5%en11 --> fe80::66e8:81ff:fe43:cc48%en11
+16 bytes from fe80::66e8:81ff:fe43:cc48%en11, icmp_seq=0 hlim=64 time=0.922 ms
+16 bytes from fe80::66e8:81ff:fe43:cc48%en11, icmp_seq=1 hlim=64 time=0.976 ms
+```
