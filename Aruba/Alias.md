@@ -103,6 +103,26 @@ Status and Counters - VLAN Information - Custom view
  
  ```
  
+ **Turn chassis LED on**
+ 
+ To enable the LED on member 1:
+ ```
+uid 1         
+uidoff 1
+
+If the switch isn't stacked modifiy the alias:
+alias "uid" "chassislocate blink"
+alias "uidoff" "chassislocate off"
+```
+I have been adding `stacking enable` to my template so that aliases and interface names are consistent between stacks and standalone switches. </br>
+
+For example, with stacking disabled, a Procurve 2930 will refer to the first copper port as "1". 
+
+With stacking enabled, it will refer to it as 1/1. 
+
+I can use logic in my Jinja2 template to deal with the differences but I have found customers coming from Cisco like 1/1 better that 1 anyway.
+
+ 
  
   
   
