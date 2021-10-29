@@ -38,6 +38,8 @@ alias spb "show power brief"
 alias aaa "show run | in aaa"
 alias snmp "show run | in snmp"
 alias vlan "show vlans custom id ipaddr ipmask state"
+alias "uid" "chassislocate member $1 blink"
+alias "uidoff" "chassislocate member $1 off"
 ```
 
 **Example Output**</br>
