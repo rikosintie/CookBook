@@ -102,8 +102,8 @@ If you are consoled into the switch you can ping the laptop from the switch to v
 
 On the laptop, run the interface display command for your OS.
 * On macOS so it's `ifconfig`
-* On Linux it would be `ip addr`
-* On Windows it would be `ipconfig /all`</br>
+* On Linux it's `ip addr`
+* On Windows it's `ipconfig /all`</br>
 
 My ipv6 link local is `fe80::1c95:d94f:d7c4:eab5`</br>
 
