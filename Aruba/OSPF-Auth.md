@@ -60,7 +60,90 @@ vlan 850
    exit
 ```
 
-##Remember that you have to configure authentication on both routers for the neighborship to come up##
+**Remember that you have to configure authentication on both routers for the neighborship to come up**  </br>
 
-##Show Commands##</br>
+You can run `show logging -r` to check on the state. Here are the logs on the fisrt switch before I added authentication to the second switch. </br>
+
+```
+E 11/05/21 22:45:27 03132 OSPF: ST1-CMDR: RECV: Discarding packet on interface
+            vl850 : Invalid authentication type (5 times in 60 seconds)
+```
+
+As soon as I added authentication to the second switch </br>
+```
+I 11/05/21 22:47:22 02703 OSPF: ST1-CMDR: ADJCHG: Neighbor with Router ID
+            10.251.34.121 on vlan-850 moved to Full state - adjacency formed.
+```
+
+## Show Commands </br>
+I created some aliases and added them to my template for OSPF. These make it fast and easy to review the OSPF state. </br>
+
+```
+alias "ospf" "sh ip ospf interface VLAN 850"
+alias "ospfne" "sh ip ospf neighbor"
+alias "ospfext" "sh ip ospf external-link-state"
+```
+**Using the aliases** </br>
+
+Show the OSPF interface state</br>
+```
+test# ospf
+
+ OSPF configuration and statistics for VLAN 850
+
+ OSPF Interface Status for 10.251.34.122
+
+  IP Address      : 10.251.34.122       Status  : enabled 
+  Area ID         : backbone       
+
+  State  : Point-to-point               Auth-type : md5   
+  Cost   : 1                            Chain     : COR                        
+  Type   : Point-to-point               Priority  : n/a
+
+  Transit Delay     : 1                 Retrans Interval  : 5   
+  Hello Interval    : 10                Rtr Dead Interval : 40        
+  Designated Router : n/a               Events            : 0         
+  Backup Desig. Rtr : n/a               Passive           : no 
+  Neighbors         : 1         
+```
+**Show the OSPF neighbors** </br>
+```
+test # ospfne
+
+ OSPF Neighbor Information
+
+  Router ID       Pri IP Address      NbIfState State    QLen  Events Status
+  --------------- --- --------------- --------- -------- ----- ------ ------
+  10.251.34.121   n/a 10.251.34.121   n/a       FULL     0     7      None  
+```
+**Show OSPF external link state** </br>
+```
+test# # ospfext
+
+ OSPF External LSAs
+
+  Link State ID   Router ID       Age  Sequence #  Checksum  
+  --------------- --------------- ---- ----------- ----------
+  10.70.16.0      10.70.16.200    1655 0x80000001  0x00003297
+  10.70.17.0      10.70.16.200    1656 0x80000001  0x000027a1
+  10.70.18.0      10.70.16.200    1656 0x80000001  0x00001cab
+ ```
+ **There are several other OSPF show commands you can experiment with**</br>
+ ```
+ test# sh ip ospf 
+ area                  Show the details of all the OSPF areas configured on the device.
+ external-link-state   Show the Link State Advertisements from throughout the areas to which the device is attached.
+ general               Show OSPF basic configuration and operational information.
+ interface             Show OSPF interfaces' information.
+ link-state            Show all Link State Advertisements from throughout the areas to which the device is attached.
+ neighbor              Show the devices that have established a neighbor relationship with this device.
+ redistribute          List protocols which are being redistributed into OSPF.
+ restrict              List routes which will not be redistributed via OSPF.
+ spf-log               List the OSPF SPF(Shortest Path First Algorithm) run count for all OSPF areas and last ten Reasons for running SPF.
+ statistics            List OSPF packet statistics( OSPF sent,recieved and error packet count) of all OSPF enabled interfaces.
+ traps                 Show OSPF traps enabled on the device.
+ ```
+ ## References ##
+ 
+[How To Configure MD5 Authentication For OSPF](https://community.arubanetworks.com/blogs/esupport1/2020/04/30/how-to-configure-md5-authentication-for-ospf-in-multi-os-environment)
 
