@@ -59,3 +59,8 @@ vlan 850
    ip ospf 10.251.34.122 md5-auth-key-chain "OSPF-Auth"
    exit
 ```
+
+##Remember that you have to configure authentication on both routers for the neighborship to come up##
+
+##Show Commands##</br>
+
