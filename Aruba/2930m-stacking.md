@@ -10,15 +10,15 @@ One switch in the stack is designated as “Commander” and one switch is elect
 designated “Member”. The Commander is responsible for the overall management of the stack. The Standby provides redundancy 
 for the stack and takes over stack management operations if the Commander fails, or if a Commander failover is forced by an administrator.
 
-The Members are not part of the overall stack management, they must manage their local subsystems and ports to operate correctly 
-as part of thestack. The Commander and Standby are also responsible for their own local subsystems and ports. Switch Stack Management (stacking)
+The members are not part of the overall stack management, they must manage their local subsystems and ports to operate correctly 
+as part of the stack. The Commander and Standby are also responsible for their own local subsystems and ports. Switch Stack Management (stacking)
 enables you to use a single IP address and standard network cabling to manage a group of up to 10 total switches in the same IP subnet (broadcast domain). 
 
 **Using stacking for these switches enables you to:**
 * Simplify management of small workgroups or wiring closets while scaling your network to handle increased bandwidth demand.
 * Add switches to your network without having to first perform IP addressing tasks.
 * Reduce the number of IP addresses needed in your network.
-* Reduce downtime with high availability in the event of a failure.  The otherswitches are designated “Member”. The Commander is responsible for the overall management of the stack. TheStandby provides redundancy for the stack and takes over stack management operations if the Commander fails,or if a Commander failover is forced by an administrator.
+* Reduce downtime with high availability in the event of a failure.  The otherswitches are designated “Member”. The Commander is responsible for the overall management of the stack. The Standby provides redundancy for the stack and takes over stack management operations if the Commander fails,or if a Commander failover is forced by an administrator.
 
 **NOTE:**
 > In the default configuration, stacking is enabled on these switches. However, if a 2930M switch is powered on and it does not have a Stacking Module installed, 
