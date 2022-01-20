@@ -44,7 +44,19 @@ Notice the the ID isn't set. Run the following to set the stack ID to 1
 
 `switch(config)#stacking set-stack
 `
-<p>&nbsp;</p>
+
+</br>
+Set the commander's priority to 255. The range is 1-255, higher has more priority </br>
+
+`stacking member 1 priority 255
+`
+</br>
+</br>
+If you want switch 2 to be the standby, set its priority to 254 </br>
+`stacking member 2 priority 254
+`
+</br>
+</br>
 
 **Cabling** 
 
