@@ -171,4 +171,5 @@ Continue powering up the one switch at a time until all switches are online and 
 
 
 ## Reference ##
-[See Chapter 9](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00050240en_us)
+[See Chapter 9](https://support.hpe.com/hpesc/public/docDisplay?docLocale=en_US&docId=emr_na-a00050240en_us)</br>
+[HPE Stacking Guide](https://techhub.hpe.com/eginfolib/networking/docs/switches/WB/15-18/5998-8156_wb_2926_atmg/content/ch06s02.html)
