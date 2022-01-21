@@ -18,7 +18,7 @@ enables you to use a single IP address and standard network cabling to manage a 
 * Simplify management of small workgroups or wiring closets while scaling your network to handle increased bandwidth demand.
 * Add switches to your network without having to first perform IP addressing tasks.
 * Reduce the number of IP addresses needed in your network.
-* Reduce downtime with high availability in the event of a failure.  The other switches are designated “Member”. The Commander is responsible for the overall management of the stack. The Standby provides redundancy for the stack and takes over stack management operations if the Commander fails,or if a Commander failover is forced by an administrator.
+* Reduce downtime with high availability in the event of a failure.  The other switches are designated “Member”. The Commander is responsible for the overall management of the stack. The Standby provides redundancy for the stack and takes over stack management operations if the Commander fails, or if a Commander failover is forced by an administrator.
 
 **NOTE:**
 > In the default configuration, stacking is enabled on these switches. However, if a 2930M switch is powered on and it does not have a Stacking Module installed, 
