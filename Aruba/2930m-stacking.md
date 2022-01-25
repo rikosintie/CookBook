@@ -57,7 +57,7 @@ If you want switch 2 to be the standby, set its priority to 254 </br>
 `
 </br>
 
-Here is a show run of a 3 switch stack
+Here is a show run of a 3 switch stack </br>
 `
 stacking
    member 1 type "R0M67A" mac-address b8:d4:e7:b6:a6:c0
