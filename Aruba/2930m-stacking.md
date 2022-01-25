@@ -46,19 +46,19 @@ Notice the the ID isn't set. Run the following to set the stack ID to 1
 `
 
 </br>
-Set the commander's priority to 255. The range is 1-255, higher has more priority </br>
+Set the commander's priority to 255. The range is 1-255, higher has more priority. The default is 128. </br>
 
 `stacking member 1 priority 255
 `
 </br>
 </br>
-If you want switch 2 to be the standby, set its priority to 254 </br>
-`stacking member 2 priority 254
+If you want switch 2 to be the standby, set its priority to 200 </br>
+`stacking member 2 priority 200
 `
 </br>
 
 Here is a show run of a 3 switch stack </br>
-`
+```
 stacking
    member 1 type "R0M67A" mac-address b8:d4:e7:b6:a6:c0
    member 1 priority 255
@@ -69,7 +69,7 @@ stacking
    member 3 type "JL322A" mac-address 8c:85:c1:53:fe:40
    member 3 flexible-module A type JL083A
    exit
-`
+```
 </br>
 
 **Cabling** 
@@ -105,15 +105,18 @@ repeat
 **Setting the Stack Members before Powering On**</br>
 If you have the switch model and  MAC addresses ahead of time you can prebuild the stacking order. 
 
-The format is 
+The format is </br>
 `
 HP Switch(config)#: stacking member <n> type <JxxxxA> [mac <MAC-address>]
 `
+</br>
+</br>
 For Example,
+</br>
 `
 member 2 type "JL322A" mac-address 8c:85:c1:53:aa:80
 `
-
+</br>
 
 **Removing a member**</br>
 If you want to remove a member from the stack use:
