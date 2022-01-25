@@ -88,6 +88,18 @@ repeat
  <cr>
 ```
 
+**Setting the Stack Members before Powering On**</br>
+If you have the switch model and  MAC addresses ahead of time you can prebuild the stacking order. 
+
+The format is 
+`
+HP Switch(config)#: stacking member <n> type <JxxxxA> [mac <MAC-address>]
+`
+For Example,
+`
+member 2 type "JL322A" mac-address 8c:85:c1:53:aa:80
+`
+
 
 **Removing a member**</br>
 If you want to remove a member from the stack use:
@@ -168,6 +180,8 @@ show stacking stack-ports
 </br>
 Continue powering up the one switch at a time until all switches are online and in the stack.</br>
 
+## Password reset ##
+The 2930M switches have a reset and clear button the the front panel. If you need to clear the username/password you can use a paperclip and press the "clear" button for 7-10 seconds. One issue with a stack is that you have to be on the Commander. Since you can't log in, you might not know which switch is the commander. In that case, you will have to connect a console cable and try one at a time.
 
 
 ## Reference ##
