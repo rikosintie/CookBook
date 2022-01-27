@@ -125,6 +125,13 @@ With stacking enabled, it will refer to it as 1/1.
 I can use logic in my Jinja2 template to deal with the differences but I have found customers coming from Cisco like 1/1 better that 1 anyway.
 
  
+ ## Usage Note ##
+ You can use the normal "|" commands with the alias. For exmaple, I wanted to see just VoIP devices that were profiled with cppm: </br>
  
+ ```
+2930# cppm | i Vo
+  1/9   24d9213a95d2  24:d9:21:3a:87:d2 10.2330.12.42     *COR_WIRED_VoI... MAC   20                                                     
+  1/19  24d9213a9588  24:d9:21:3a:87:88 10.233.12.61      *COR_WIRED_VoI... MAC   20     
+```
   
   
