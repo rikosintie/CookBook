@@ -148,18 +148,47 @@ show stacking ?
 ```
 **show stacking detail**</br> 
 ```
-Stack ID         : 03003810-f04d33c0                                                     
-MAC Address      : 38:10:f0:4d:33:ca
-Stack Topology   : Chain                                   
+2930-stack# sh stack det
+
+Stack ID         : 0200b8d4-e7bbb700                                                     
+MAC Address      : b8:d4:e7:bb:b7:0a
+Stack Topology   : Ring                                    
 Stack Status     : Active                                  
 Split Policy     : One-Fragment-Up 
-Uptime           : 0d 0h 23m   
-Software Version : WC.16.10.0016
+Uptime           : 2d 5h 42m   
+Software Version : WC.16.10.0018
 
-Name             : OPD-CORE-2930
+Name             : 2930-stack
 Contact          : 
 Location         : 
+
+
+Member ID        : 1 
+Mac Address      : b8:d4:e7:bb:b7:00
+Type             : R0M67A
+Model            : Aruba R0M67A 2930M-40G-8SR-PoE-Class6 Switch                
+Priority         : 255
+Status           : Commander      
+ROM Version      : WC.17.02.0006                                     
+Serial Number    : SG06KJS0AZ                                                   
+Uptime           : 2d 5h 42m   
+CPU Utilization  : 0%  
+Memory - Total   : 337,453,568 bytes 
+Free             : 169,782,544 bytes 
+Stack Ports - 
+#1 : Active, Peer member 2              
+#2 : Active, Peer member 4
+
+
+
+Member ID        : 2 
+Mac Address      : 8c:85:c1:53:bb:c0
+Type             : JL322A
+Model            : Aruba JL322A 2930M-48G-PoE+ Switch                          
+Priority         : 200
+Status           : Standby        
 ```
+</br>
 **show stacking member**</br>
 ```
 show stacking member 
