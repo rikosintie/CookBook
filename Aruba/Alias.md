@@ -127,7 +127,7 @@ I can use logic in my Jinja2 template to deal with the differences but I have fo
 
  
  ## Usage Notes ##
- You can use the normal "|" commands with the alias. For exmaple, I wanted to see just VoIP devices that were profiled with cppm: </br>
+ You can use the normal "|" commands with the alias. For example, I wanted to see just VoIP devices that were profiled with cppm: </br>
  
  ```
 2930# cppm | i Vo
