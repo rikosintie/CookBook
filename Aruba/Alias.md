@@ -35,6 +35,7 @@ alias sis "show interface status"
 alias sii "show ip"
 alias sid "show name"
 alias spb "show power brief"
+alias "pwr" "sh power br | i Delivering"
 alias aaa "show run | in aaa"
 alias "cppm" "show port-access clients"
 alias "user" "sh ip ssh strict"
@@ -125,13 +126,24 @@ With stacking enabled, it will refer to it as 1/1.
 I can use logic in my Jinja2 template to deal with the differences but I have found customers coming from Cisco like 1/1 better that 1 anyway.
 
  
- ## Usage Note ##
+ ## Usage Notes ##
  You can use the normal "|" commands with the alias. For exmaple, I wanted to see just VoIP devices that were profiled with cppm: </br>
  
  ```
 2930# cppm | i Vo
   1/9   24d9213a95d2  24:d9:21:3a:87:d2 10.233.12.42     *COR_WIRED_VoI... MAC   20                                                     
   1/19  24d9213a9588  24:d9:21:3a:87:88 10.233.12.61     *COR_WIRED_VoI... MAC   20     
+```
+</br>
+You can can also use standard Linux regex in the pipe command. In this example, I wanted to display just ports 3/46, 3/47, 3/48. I used square brackets [] and then entered 6-8 in the brackets. You can see that it returned only the ports I was interested in.
+</br>
+</br>
+
+```
+2930# sh int status | i 3/4[6-8]
+  3/46                Up      Auto          1000FDx  100/1000T  20     10      
+  3/47                Down    Auto          1000FDx  100/1000T  20     10      
+  3/48                Down    Auto          1000FDx  100/1000T  20     10  
 ```
   
   
