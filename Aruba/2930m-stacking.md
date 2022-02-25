@@ -40,7 +40,7 @@ Stack ID         : NO ID - will merge upon connectivity
 ```
 
 
-Notice the the ID isn't set. Run the following to set the stack ID to 1
+Notice the ID isn't set. Run the following to set the stack ID to 1
 
 `switch(config)#stacking set-stack
 `
@@ -84,8 +84,70 @@ At this point, power on switch two and let it completely boot. This switch will 
 ![](/Aruba/images/2930M-Stack-Topo.png)
 <p>&nbsp;</p>
 
-Only power up one switch at a time. Check the progress of the new switch using </br>
-`show stacking
+## Preconfiguring stacking </br>
+You can configure stacking in the configuration and load it onto a switch ahead of time. </br>
+
+The configuration includes the MAC address of each member so the order you power up the switches doesn't matter.
+
+To see the options on a switch you can do the following:</br>
+```
+stacking member 2 type ?
+ JL319A               
+ JL321A               
+ JL320A               
+ JL322A               
+ JL324A               
+ JL323A               
+ R0M67A               
+ R0M68A               
+ ```
+ The final command to add an R0M67A as member 2 to the configuration would be:</br>
+ 
+ `
+ stacking member 2 type R0M67A mac 64e881-381440
+ `
+ </br>
+ 
+ If you have physical access to the switch you can use:
+
+show stacking to get the type and mac: </br>
+
+```
+show stacking
+
+Stack ID         : NO ID - will merge upon connectivity                                  
+MAC Address      : 64e881-38144a    
+Stack Topology   : No Stack Formed                         
+Stack Status     : No Stack Formed                         
+Split Policy     : One-Fragment-Up 
+Uptime           : 0d 0h 25m   
+Software Version : WC.16.10.0018
+
+ Mbr                                                                            
+ ID  Mac Address       Model                                 Pri Status         
+ --- ----------------- ------------------------------------- --- ---------------
+ *1  64e881-381440     Aruba R0M67A 2930M-40G-8SR-PoE-Cla... 128 Commander   
+ ```
+ 
+ If the switch is a 2930M you can add the module to the congifuration using:</br>
+ 
+ ```
+ stacking member 3 flexible-module A type       
+ JL078A               
+ JL081A               
+ JL083A               
+
+stacking member 3 flexible-module A type JL083A
+```
+</br>
+This will let you load the complete configuration before the switches are stacked.
+
+</br>
+## If you want to stack the switches before configuring  
+
+Connect the stacking cables, then power up one switch at a time, starting with member 1. Check the progress of the new switch using </br>
+`
+show stacking
 `
 
 You can use the "repeat" command to monitor the switches starting up</br>
