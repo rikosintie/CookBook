@@ -209,6 +209,7 @@ show stacking ?
  <cr>
 ```
 **show stacking detail**</br> 
+
 ```
 2930-stack# sh stack det
 
@@ -249,12 +250,18 @@ Type             : JL322A
 Model            : Aruba JL322A 2930M-48G-PoE+ Switch                          
 Priority         : 200
 Status           : Standby        
+
 ```
-</br>
-**show stacking member**</br>
+
+
+**show stacking member** </br>
+
+
 ```
-show stacking member 
- STACK-MEMBER-LIST     Enter a list of stack members or one stack-member for the 'members'command/parameter.
+show stacking member ? 
+STACK-MEMBER-LIST     Enter a list of stack members or one stack-member for the 'members'command/parameter.
+
+
 (config)# show stacking member 2
 
 Member ID        : 2 
@@ -272,8 +279,12 @@ Free             : 192,039,168 bytes
 Stack Ports - 
 #1 : Active, Peer member 3              
 #2 : Active, Peer member 1
+
 ```
-**show stack-port status**</br>
+</br>
+
+**show stack-port status** </br>
+
 ```
 show stacking stack-ports 
   Member Stacking Port State    Peer Member Peer Port
