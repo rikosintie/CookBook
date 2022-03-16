@@ -18,4 +18,6 @@ no ip ssh cipher aes192-cbc
 no ip ssh cipher aes256-cbc
 no ip ssh mac hmac-md5
 no ip ssh mac hmac-md5-96
+no ip ssh kex diffie-hellman-group-exchange-sha256
+no ip ssh kex diffie-hellman-group14-sha1
 ```
