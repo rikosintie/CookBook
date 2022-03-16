@@ -22,6 +22,20 @@ no ip ssh kex diffie-hellman-group-exchange-sha256
 no ip ssh kex diffie-hellman-group14-sha1
 ```
 
+Here is a Wireshark capture after removal.
+
+```
+SSH Protocol
+    SSH Version 2 (encryption:aes128-ctr mac:hmac-sha2-256 compression:none)
+        Packet Length: 12
+        Padding Length: 10
+        Key Exchange (method:ecdh-sha2-nistp256)
+            Message Code: New Keys (21)
+        Padding String: 89668b4e3b8b6b898eac
+    [Direction: server-to-client]
+```
+
+
 ### Note, this PSA is for Aruba CX switches but the attack works on SSH/TLS with any device that uses DHE key exchange.
 ```
 Diffie-Hellman Key Agreement Protocol Vulnerability (CVE-2002-20001)
