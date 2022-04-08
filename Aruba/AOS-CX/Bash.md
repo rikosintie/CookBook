@@ -154,11 +154,11 @@ umask 022
  alias cp='cp -i'
  alias mv='mv -i'
  alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
- #View only mounted drives
+ # View only mounted drives
  alias lt='ls --human-readable --size -1 -S --classify'
  #count files in a directory
  alias count='find . -type f | wc -l'
- alias ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0'
+ ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0;cat /etc/resolv.conf | grep name'
  ```
 **To test them out**</br>
 
@@ -250,6 +250,87 @@ They history will be searched and only entries that match the characters you ent
    
 It will take some time for the history to populate. Just keep working at the terminal and after a short time you </br>
 will be able to take advantage of the incremental history feature.
+
+**Using the aliases**
+Show mounted disks
+The alias `mnt` shows a concise list of the mounted disks
+
+```
+8325:~$ mnt
+/dev/sda1   /fs/selftest
+/dev/sda2   /fs/coredump
+/dev/sda2   /var/lib/systemd/coredump
+/dev/sda3   /fs/logs
+/dev/sda4   /fs/security
+/dev/sda5   /fs/nos
+/dev/sdb1   /eusb/efi
+/dev/sdb2   /eusb/primary
+/dev/sdb3   /eusb/secondary
+/dev/sdb4   /eusb/mfg1
+/dev/sdb5   /eusb/mfg2
+/dev/sdc1   /mnt/usb
+```
+
+list files in human readable format
+cd /etc
+lt
+```
+8325:/etc$ lt
+total 592K
+ 96K cmf_rules.tar.gz
+ 68K cam.py
+ 48K mib.py
+ 24K nbase.ini*
+ 24K ld.so.cache
+ 20K services
+ 12K login.defs
+ ```
+ 
+ Show a count of files in a directory
+ ```
+ 8325:/etc$ count
+find: ./sudoers.d: Permission denied
+find: ./audit/rules.d: Permission denied
+find: ./rda/certs: Permission denied
+752
+```
+
+Show IP address, default GW, name servers
+```
+8325:~$ ipen0
+    link/ether 64:e8:81:1c:6b:01 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.2/24 scope global eth0
+    inet6 fe80::66e8:81ff:fe1c:6b01/64 scope link 
+default via 192.168.1.1 dev eth0 proto static 
+192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.2 
+nameserver 1.1.1.1
+nameserver 8.8.8.8
+nameserver 1.0.0.1
+nameserver 8.8.4.4
+nameserver 2606:4700:4700::1111
+nameserver 2001:4860:4860::8888
+nameserver 2606:4700:4700::1001
+nameserver 2001:4860:4860::8844
+```
+
+## But there is a catch!
+When the 8325 is rebooted it overwrites the .bashrc file and all of your changes are gone. Aruba is using the [Yocto Projet](https://www.yoctoproject.org) to build the Linux image and Yocto is an embedded OS. To see the version you can type `uname -a` [enter]:</br>
+
+```
+8325:~$ uname -a
+Linux 8325 4.19.68-yocto-standard #1 SMP PREEMPT Wed Feb 9 03:32:37 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+**What to do**</br>
+You can mount a USB flash drive and copy files to the shell. I you create your gold images and save them to a USB flash drive the following will copy them to the 8325:
+
+```
+usb mount
+start-shell
+cp /mnt/usb/.bashrc ~/.bashrc
+cp /mnt/usb/.inputrc ~/.inputrc
+exec bash
+```
 
 
 
