@@ -226,7 +226,7 @@ It does exist and has the correct lines in it.</br>
 
 Now Bash will parse the history file and save us a lot of time.
 
-TO see your complete history file type `history`[enter]
+To see your complete history file type `history`[enter]
 
 ```
 8325:~$ history
@@ -246,9 +246,10 @@ TO see your complete history file type `history`[enter]
 
 That is useful, but with the .inputrc file active, you can just type a couple characters and press the up arrow.</br>
 
-They history will be searched and only entries that match the characters you entered will be matched.
+They history will be searched and only entries that match the characters you entered will be matched.</br>
    
-
+It will take some time for the history to populate. Just keep working at the terminal and after a short time you </br>
+will be able to take advantage of the incremental history feature.
 
 
 
