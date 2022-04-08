@@ -332,6 +332,16 @@ cp /mnt/usb/.inputrc ~/.inputrc
 exec bash
 ```
 
+You can also use tftp to copy the files over</br>
+```
+8325:~$ tftp
+tftp> get 192.168.1.1:.bashrc
+Received 769 bytes in 0.0 seconds
+tftp> get 192.168.1.1:.inputrc
+Received 110 bytes in 0.1 seconds
+tftp> quit
+```
+
 
 
 
