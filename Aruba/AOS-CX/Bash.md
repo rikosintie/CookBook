@@ -87,7 +87,7 @@ The screen will change and the `#` symbols will be highlighted in yellow. The fi
 
 The next `#` is also necassary as that is a comment line. Type `n` one more time. </br>
 
-Enter `y` on the symbols that are not spacers or comments. </br.
+Enter `y` on the symbols that are not spacers or comments. </br>
 
 Your .bahsrc file should look like this when complete.
 
