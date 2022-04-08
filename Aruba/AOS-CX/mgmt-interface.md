@@ -1,7 +1,10 @@
 # The CX line has a dedicated management Ethernet port. 
 
 ## Configuring the management port
-Below is a list of the commands available when in the mgmt context. </br>
+By default, management interface is set to operate as a DHCP client.</br>
+
+To use a static IP address:
+
 ```
 8325(config-if-mgmt)# show running-config current-context
 interface mgmt
