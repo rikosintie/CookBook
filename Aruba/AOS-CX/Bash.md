@@ -45,7 +45,7 @@ Notice the comments in the .bashrc file suggest removing the `#` symbol to "unco
 
 For better or worse, the only editor I have found is vim. If you are not familiar with vim it will be frustrating at first. </br>
 
-Once you learn the basics vim is a great editor and it will give you "Linux Cred".
+Once you learn the basics vim is a great editor and it will give you "Linux Cred". This is a good tutorial [vim for beginners](https://www.youtube.com/watch?v=RZ4p-saaQkc)
 
 To open the .bashrc file type `vim .bashrc` [enter]
 
