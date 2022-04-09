@@ -81,8 +81,7 @@ LOCAL-PORT  CHASSIS-ID         PORT-ID                      PORT-DESC           
 ```
 
 ## The Linux shell
-The CX line allows you to drop into the Linux shell. Bash is the default shell. See `customizing the bash shell` </br>
-in this repo for information on making shell more user friendly and safer!
+The CX line allows you to drop into the Linux shell. Bash is the default shell. See [customizing the bash shell](https://github.com/rikosintie/CookBook/blob/main/Aruba/AOS-CX/Bash.md) for information on making shell more user friendly and safer!
 
 To drop into the shell use the `start-shell` command. Here you can see that the mgmt interface is eth0 in the shell.
 ```
