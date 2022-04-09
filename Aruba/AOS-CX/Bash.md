@@ -280,7 +280,7 @@ The alias `mnt` shows a concise list of the mounted disks
 
 list files in human readable format</br>
 cd /etc
-lt
+
 ```
 8325:/etc$ lt
 total 592K
