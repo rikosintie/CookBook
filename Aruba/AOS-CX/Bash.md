@@ -258,8 +258,8 @@ They history will be searched and only entries that match the characters you ent
 It will take some time for the history to populate. Just keep working at the terminal and after a short time you </br>
 will be able to take advantage of the incremental history feature.
 
-**Using the aliases**
-Show mounted disks
+**Using the aliases**</br>
+Show mounted disks</br>
 The alias `mnt` shows a concise list of the mounted disks
 
 ```
@@ -278,7 +278,7 @@ The alias `mnt` shows a concise list of the mounted disks
 /dev/sdc1   /mnt/usb
 ```
 
-list files in human readable format
+list files in human readable format</br>
 cd /etc
 lt
 ```
