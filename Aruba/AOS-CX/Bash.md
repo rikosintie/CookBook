@@ -161,7 +161,7 @@ umask 022
  alias lt='ls -a --human-readable --size -1 -S --classify'
  #count files in a directory
  alias count='find . -type f | wc -l'
- ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0;cat /etc/resolv.conf | grep name'
+ alias ipen0='ifconfig eth0 | grep "ether\|broadcast";netstat -nr | grep default | grep eth0;cat /etc/resolv.conf | grep nameserver;ifconfig eth0 | grep inet6;ip route | grep eth0'
  ```
 **To test them out**</br>
 
