@@ -329,7 +329,7 @@ Linux 8325 4.19.68-yocto-standard #1 SMP PREEMPT Wed Feb 9 03:32:37 UTC 2022 x86
 ```
 
 **What to do**</br>
-You can mount a USB flash drive and copy files to the shell. I you create your gold images and save them to a USB flash drive the following will copy them to the 8325:
+You can mount a USB flash drive and copy files to the shell. I suggest that you create your gold images and save them to a USB flash drive. The following will copy them to the 8325:
 
 ```
 usb mount
