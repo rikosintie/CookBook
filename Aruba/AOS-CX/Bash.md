@@ -133,9 +133,13 @@ alias ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0'
 
 Press the `i` key to enter "insert mode" then move to the end of the line `alias mv='mv -i'` and press [enter]</br.
 
-Paste the additional aliases into the file. Press `ESC` to exit "insert mode"<</br>
+Paste the additional aliases into the file. Press `ESC` to exit "insert mode"</br>
 
 Type `:wq` [enter] to save and exit. <br>
+
+The `:` is used by vim to start a command, `w` means write the file and `q` means quit.</br>
+
+If you want to exit without saving use `:q!` instead.
 
 ## Verify your changes
 
@@ -197,10 +201,10 @@ We will use vim again
 
 Then press `i` for "insert mode". Paste the following into the file:
 
-"\e[A": history-search-backward 
-"\e[B": history-search-forward 
-"\e[C": forward-char
-"\e[D": backward-char
+"\e[A": history-search-backward </br>
+"\e[B": history-search-forward </br>
+"\e[C": forward-char</br>
+"\e[D": backward-char</br>
 
 Press `ESC` to exit "insert mode", then `:wq` to write and quit.</br>
 
