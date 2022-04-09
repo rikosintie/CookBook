@@ -1,4 +1,4 @@
-# The CX line has a dedicated management Ethernet port. 
+# The CX line has a dedicated Ethernet management port
 
 ## Configuring the management port
 By default, management interface is set to operate as a DHCP client.</br>
