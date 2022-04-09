@@ -2,7 +2,7 @@
 
 To drop into the Linux shell type `start-shell` and press [enter]</br>
 
-Use `ls -la` do list the files in the home directory:
+Use `ls -la` to list the files in the home directory:
 
 ```
 8325:~$ ls -la
@@ -16,9 +16,9 @@ drwx------ 2 admin administrators  40 Feb  5 10:36 .ssh
 
 The shell uses Bash so the .bashrc files contains the configurations for Bash. </br>
 
-In Linux the `.` in front of a files designates it as a hidden file. That is the reason we used `ls -la` so display the files.</br>
+In Linux the `.` in front of a file designates it as a hidden file. That is the reason we used `ls -la` to display the files.</br>
 
-The`-la` means - Show files in long format and include hidden files. </br>
+The`-la` means show files in long format and include hidden files. </br>
 
 To list the contents of the .bashrc file, type `cat .bashrc` [enter] </br>
 
@@ -44,6 +44,8 @@ umask 022
 Notice the comments in the .bashrc file suggest removing the `#` symbol to "uncomment" them.</br>
 
 For better or worse, the only editor I have found is vim. If you are not familiar with vim it will be frustrating at first. </br>
+
+Once you learn the basics vim is a great editor and it will give you "Linux Cred".
 
 To open the .bashrc file type `vim .bashrc` [enter]
 
@@ -87,7 +89,7 @@ The screen will change and the `#` symbols will be highlighted in yellow. The fi
 
 The next `#` is also necassary as that is a comment line. Type `n` one more time. </br>
 
-Enter `y` on the symbols that are not spacers or comments. </br>
+Enter `y` on the symbols that are not spaces or comments. </br>
 
 Your .bahsrc file should look like this when complete.
 
@@ -119,10 +121,11 @@ umask 022
 ```
 
 ## Add a few more aliases
+I like to add these additional aliases. They don't slow the system or take up many resources.
 ```
 alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
 #View only mounted drives
-alias lt='ls --human-readable --size -1 -S --classify'
+alias lt='ls -la --human-readable --size -1 -S --classify'
 #count files in a directory
 alias count='find . -type f | wc -l'
 alias ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0'
@@ -155,7 +158,7 @@ umask 022
  alias mv='mv -i'
  alias mnt="mount | awk -F' ' '{ printf \"%s\t%s\n\",\$1,\$3; }' | column -t | egrep ^/dev/ | sort"
  # View only mounted drives
- alias lt='ls --human-readable --size -1 -S --classify'
+ alias lt='ls -a --human-readable --size -1 -S --classify'
  #count files in a directory
  alias count='find . -type f | wc -l'
  ipen0='ip addr show eth0 | grep "inet\|ether\|brd";ip route | grep eth0;cat /etc/resolv.conf | grep name'
@@ -341,13 +344,4 @@ tftp> get 192.168.1.1:.inputrc
 Received 110 bytes in 0.1 seconds
 tftp> quit
 ```
-
-
-
-
-
-
-
-
-
 
