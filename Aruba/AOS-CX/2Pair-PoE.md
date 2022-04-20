@@ -43,16 +43,16 @@ Hardware Products affected:
 Aruba 6300, 6400, 4100i Switch Series Class-6 PoE Products
 Aruba 2930M Switch Series Class-6 PoE Products </br>
 
-|  OS   | Series | Part Number | Product Description                |
-|-------|--------|-------------|:----------------------------------------|
-|AOS-CX | 6300   | JL659A      | Aruba 6300M 48SR5 CL6 PoE 4SFP56 Swch   |
-|AOS-CX | 6300   | JL660A      | Aruba 6300M 24SR5 CL6 PoE 4SFP56 Swch   |
-|AOS-CX | 6400   | R0X40B      | Aruba 6400 48p 1GbE CL6 PoE 4SFP56 Mod  |
-|AOS-CX | 6400   | R0X41A      | Aruba 6400 48p SR5 CL6 PoE 4SFP56 Mod   |
-|AOS-CX | 4100i  | JL817A      | Aruba 4100i 12G CL4/6 POE 2SFP+ DIN Sw  |
-|AOS-CX | 4100i  | JL818A      | Aruba 4100i 24G CL4/6 POE 4SFP+ Sw      |
-|AOS    | 2930M  | R0M67A      | Aruba 2930M 40G 8SR PoE Class 6 1s Swch |
-|AOS    | 2930M  | R0M68A      | Aruba 2930M 24SR PoE Class 6 1s Swch    |
+|  OS   | Series | Part Number   | Product Description                |
+|-------:|:--------:|:-------------:|:----------------------------------------|
+|AOS-CX | 6300     | JL659A       | Aruba 6300M 48SR5 CL6 PoE 4SFP56 Swch   |
+|AOS-CX | 6300     | JL660A       | Aruba 6300M 24SR5 CL6 PoE 4SFP56 Swch   |
+|AOS-CX | 6400     | R0X40B       | Aruba 6400 48p 1GbE CL6 PoE 4SFP56 Mod  |
+|AOS-CX | 6400     | R0X41A       | Aruba 6400 48p SR5 CL6 PoE 4SFP56 Mod   |
+|AOS-CX | 4100i    | JL817A       | Aruba 4100i 12G CL4/6 POE 2SFP+ DIN Sw  |
+|AOS-CX | 4100i    | JL818A       | Aruba 4100i 24G CL4/6 POE 4SFP+ Sw      |
+|AOS    | 2930M    | R0M67A       | Aruba 2930M 40G 8SR PoE Class 6 1s Swch |
+|AOS    | 2930M    | R0M68A       | Aruba 2930M 24SR PoE Class 6 1s Swch    |
 </br>
 
 **Firmware Versions affected: (list all versions):**
