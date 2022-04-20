@@ -43,62 +43,20 @@ Hardware Products affected:
 Aruba 6300, 6400, 4100i Switch Series Class-6 PoE Products
 Aruba 2930M Switch Series Class-6 PoE Products </br>
 
-|  OS   | Series | Part Number |          Product Description         |
-|-------|--------|-------------|--------------------------------------|
-|AOS-CX | 6300   | JL659A      |Aruba 6300M 48SR5 CL6 PoE 4SFP56 Swch |
-|AOS-CX | 6300   | JL660A      |Aruba 6300M 24SR5 CL6 PoE 4SFP56 Swch |
+|  OS   | Series | Part Number |           Product Description           |
+|-------|--------|-------------|-----------------------------------------|
+|AOS-CX | 6300   | JL659A      | Aruba 6300M 48SR5 CL6 PoE 4SFP56 Swch   |
+|AOS-CX | 6300   | JL660A      | Aruba 6300M 24SR5 CL6 PoE 4SFP56 Swch   |
+|AOS-CX | 6400   | R0X40B      | Aruba 6400 48p 1GbE CL6 PoE 4SFP56 Mod  |
+|AOS-CX | 6400   | R0X41A      | Aruba 6400 48p SR5 CL6 PoE 4SFP56 Mod   |
+|AOS-CX | 4100i  | JL817A      | Aruba 4100i 12G CL4/6 POE 2SFP+ DIN Sw  |
+|AOS-CX | 4100i  | JL818A      | Aruba 4100i 24G CL4/6 POE 4SFP+ Sw      |
+|AOS    | 2930M  | R0M67A      | Aruba 2930M 40G 8SR PoE Class 6 1s Swch |
+|AOS    | 2930M  | R0M68A      | Aruba 2930M 24SR PoE Class 6 1s Swch    |
+</br>
 
-AOS-CX
-
-6400
-
-R0X40B
-
-Aruba 6400 48p 1GbE CL6 PoE 4SFP56 Mod
-
-AOS-CX
-
-6400
-
-R0X41A
-
-Aruba 6400 48p SR5 CL6 PoE 4SFP56 Mod
-
-AOS-CX
-
-4100i
-
-JL817A
-
-Aruba 4100i 12G CL4/6 POE 2SFP+ DIN Sw
-
-AOS-CX
-
-4100i
-
-JL818A
-
-Aruba 4100i 24G CL4/6 POE 4SFP+ Sw
-
-AOS-Switch
-
-2930M
-
-R0M67A
-
-Aruba 2930M 40G 8SR PoE Class 6 1s Swch
-
-AOS-Switch
-
-2930M
-
-R0M68A
-
-Aruba 2930M 24SR PoE Class 6 1s Swch
-
- 
-
-Firmware Versions affected: (list all versions): 
+**Firmware Versions affected: (list all versions):**
+</br>
 All firmware versions supporting Class-6 PoE.
 
 # RESOLUTION and WORKAROUNDS
@@ -121,4 +79,40 @@ Starting with 10.09.xxxx, Aruba Class-6 switches provide a per-interface configu
 The following procedure describes the actions required to mitigate this issue on Aruba Class-6 PoE switches.
 
 Use "alt-a" only configuration.
+
+**For AOS-Switch Products:**
+</br>
+Starting with firmware version 16.10.0013, Aruba Class-6 switches provide a per-interface configurable option (force-2pair-mode) to limit the Inrush to 2-pairs only, similar to Class-4 switch ports.
+
+</br>
+The following procedure describes the actions required to mitigate this issue on Aruba Class-6 PoE switches.
+
+            (1) Use firmware version of 16.10.0013 on the switch, where the force-2pair-mode power configuration is available.
+
+            (2) Configure force-2pair-mode on the interface connected to the Unify IP phone.
+
+```
+configure terminal
+no interface <port-list> power-over-ethernet
+power-over-ethernet force-2pair-mode ports <port-list>
+interface <port-list> power-over-ethernet
+```
+</br>
+Note: The enabled force-2pair-mode works only after PoE is reset on the port. Enabling force-2-pair mode when the port is powered will not affect the default 4-pair power mode. 
+
+            (3) Verify force-2pair-mode is configured on the interface connected to the Unify IP phone. 
+
+(switch)# show power-over-ethernet brief 
+ Status and Configuration Information
+   Available: 740 W  Used: 5 W  Remaining: 635 W
+ 
+PoE    Pwr  Pwr      Pre-std Alloc Alloc  PSE Pwr PD Pwr  PoE Port     PLC PLC 
+Port   Enab Priority Detect  Cfg   Actual Rsrvd   Draw    Status       Cls Type
+------ ---- -------- ------- ----- ------ ------- ------- ------------ --- ----
+ 1    Yes  low      off     usage usage  0.0 W   0.0 W   Disabled     0    -  
+ 2    Yes  low      off     usage usage  0.0 W   0.0 W   Disabled     0    - 
+ .
+ . 
+ 10   Yes  low      on      usage usage  4.5 W   4.4 W   Delivering$  5    3
+ $ - Indicates force-2Pair-mode applied port
 
