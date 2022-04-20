@@ -43,8 +43,8 @@ Hardware Products affected:
 Aruba 6300, 6400, 4100i Switch Series Class-6 PoE Products
 Aruba 2930M Switch Series Class-6 PoE Products </br>
 
-|  OS   | Series | Part Number | Product Description                     |
-|-------|--------|-------------|-----------------------------------------|
+|  OS   | Series | Part Number | Product Description                |
+|-------|--------|-------------|:----------------------------------------|
 |AOS-CX | 6300   | JL659A      | Aruba 6300M 48SR5 CL6 PoE 4SFP56 Swch   |
 |AOS-CX | 6300   | JL660A      | Aruba 6300M 24SR5 CL6 PoE 4SFP56 Swch   |
 |AOS-CX | 6400   | R0X40B      | Aruba 6400 48p 1GbE CL6 PoE 4SFP56 Mod  |
