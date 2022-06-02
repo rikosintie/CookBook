@@ -7,7 +7,7 @@
 
 # Network Device Cook Books
 
-![Network](/Aruba/images/Network-Topology-Diagram-Template-small-1.png)
+![Network](/Aruba/images/word_cloud.png)
 
 
 I plan to have Aruba Provision, Aruba AOS-CX, Cisco IOX-XE and Cisco IOS in the repo.
