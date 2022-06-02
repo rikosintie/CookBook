@@ -8,7 +8,9 @@
 # Network Device Cook Books
 
 ![Network](/Aruba/images/word_cloud.png)
-
+<p align="center">
+  <img src="http://some_place.com/image.png" />
+</p>
 
 I plan to have Aruba Provision, Aruba AOS-CX, Cisco IOX-XE and Cisco IOS in the repo.
 
