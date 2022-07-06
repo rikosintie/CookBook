@@ -32,17 +32,20 @@ Here are some aliases that I include in most Aruba legacy switches
 
 ```
 alias sis "show interface status"
-alias sii "show ip"
+alias siib "show ip"
 alias sid "show name"
-alias spb "show power brief"
-alias "pwr" "sh power br | i Delivering"
+alias spi "show power brief"
 alias aaa "show run | in aaa"
+alias snmp "show run | in snmp"
+alias "vlan" "show vlans custom id ipaddr ipmask state"
 alias "cppm" "show port-access clients"
 alias "user" "sh ip ssh strict"
-alias snmp "show run | in snmp"
-alias vlan "show vlans custom id ipaddr ipmask state"
 alias "uid" "chassislocate member $1 blink"
 alias "uidoff" "chassislocate member $1 off"
+alias "ospf" "sh ip ospf interface VLAN 850"
+alias "ospfext" "sh ip ospf external-link-state"
+alias "ospfne" "sh ip ospf neighbor"
+alias "pwr" "sh power br | i Delivering"
 ```
 
 **Example Output**</br>
