@@ -24,7 +24,7 @@ In this example, the following vlans are used:
 
 Replace "Customer" in the next example with the name of your customer
 
-```
+```dart
 device-profile name Customer-ap-profile
  tagged-vlan 88,92,96,200,204,208
  untagged-vlan 254
@@ -32,7 +32,7 @@ exit
 ```
 
 **Associcate the the aruba-ap device profile to the customer AP Profile**
-```
+```dart
 device-profile type aruba-ap 
 associate Customer-ap-profile
 enable
@@ -47,7 +47,7 @@ exit
 **Aruba AP225 connected to port 1 of a 2930f-24**
 
 **View Profile Configuration**
-```
+```dart
 show device-profile conf
 
  Device Profile Configuration
@@ -89,7 +89,7 @@ interface 1
 ```
 Show vlan 254 interfaces
 
-```
+```dart
 show vlan 254
 
  Status and Counters - VLAN Information - VLAN 254
@@ -113,7 +113,7 @@ show vlan 254
 ```
 
 Show vlan 88 interfaces
-```
+```dart
 show vlan 88
 
  Status and Counters - VLAN Information - VLAN 88
