@@ -36,7 +36,7 @@ Note that you can have more than one key-chain. In this example, the key-chain n
 You may have vendors that need access to a specific OSPF interface or you may have organizational requirements.
 
 **Add authentication to vlan 850** </br>
-```
+```dart
 vlan 850
    name Uplink
    untagged  1/A1-1/A4
@@ -86,7 +86,7 @@ alias "ospfext" "sh ip ospf external-link-state"
 **Using the aliases** </br>
 
 Show the OSPF interface state</br>
-```
+```dart
 test# ospf
 
  OSPF configuration and statistics for VLAN 850
@@ -107,7 +107,7 @@ test# ospf
   Neighbors         : 1         
 ```
 **Show the OSPF neighbors** </br>
-```
+```dart
 test # ospfne
 
  OSPF Neighbor Information
@@ -117,7 +117,7 @@ test # ospfne
   10.251.34.121   n/a 10.251.34.121   n/a       FULL     0     7      None  
 ```
 **Show OSPF external link state** </br>
-```
+```dart
 test# # ospfext
 
  OSPF External LSAs
