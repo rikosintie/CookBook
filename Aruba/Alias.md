@@ -32,9 +32,11 @@ Here are some aliases that I include in most Aruba legacy switches
 
 ```
 alias sis "show interface status"
-alias siib "show ip"
-alias sid "show name"
-alias spi "show power brief"
+alias sip "show ip"
+alias sn "show name"
+alias sit "show interfaces transceiver"
+alias "pwr" "sh power br | i Delivering"
+alias spb "show power brief"
 alias aaa "show run | in aaa"
 alias snmp "show run | in snmp"
 alias "vlan" "show vlans custom id ipaddr ipmask state"
@@ -45,7 +47,8 @@ alias "uidoff" "chassislocate member $1 off"
 alias "ospf" "sh ip ospf interface VLAN 850"
 alias "ospfext" "sh ip ospf external-link-state"
 alias "ospfne" "sh ip ospf neighbor"
-alias "pwr" "sh power br | i Delivering"
+alias tw "terminal width 150"
+alias smon "show instrumentation monitor"
 ```
 
 **Example Output**</br>
