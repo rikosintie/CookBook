@@ -25,6 +25,8 @@ PING 192.168.1.2 (192.168.1.2) 100(128) bytes of data.
 108 bytes from 192.168.1.2: icmp_seq=5 ttl=64 time=0.040 ms
 ```
 
+If the mgmt port isn't going to be connected for an out-of-band network, you should configure a static IP on it. Use the same IP on every switch. Then if you are in a closet and need to connect you can give your laptop a static on the same network and manage the switch,
+
 ### A note about lldp on the mgmt interface
 LLDP is on by default. A show running-config current-context will not list lldp transmit/receive but you can see that it is working:</br>
 
