@@ -4,15 +4,34 @@ The alias names are from Cisco aliases I have used over the years. For example, 
 
 **Standalone Switch**
 ```
-alias sis show interface br
+alias  cppm show port-access clients
+alias snoop show dhcpv4-snooping binding;show dhcpv4-snooping statistics
+alias csnoop clear dhcpv4-snooping statisticsalias  cppm show port-access clients 
+alias sis show interface br | i $1
 alias siib show ip interface brief
-alias spi show power brief
-alias aaa show run | in aaa
-alias snmp show run | in snmp
-alias cppm show port-access clients
-alias uid led loca fla
-alias uidoff led loca off
+alias spb show power brief
 alias pwr sh power br | i del
+alias auth show run | in aaa
+alias snmp1 show run | include snmp
+alias cppm show port-access clients
+alias uid led locator flashing
+alias uidoff  led locator off
+```
+
+The `sis` alias has a variable in it `$1` which means it takes whatever is after `sis` and appends it. For exmaple:
+
+```bash linenums='1' hl_lines='1 8'
+sis up
+1/1/1          1       access 1GbT           yes     up                              1000    --
+1/1/17         1       trunk  1GbT           yes     up                              1000    Default-port
+1/1/51         1       trunk  1G-SX          yes     up                              1000    Uplink to core 1/3/13
+vlan1          --      --     --             yes     up                              --      Old-vlan
+vlan254        --      --     --             yes     up                              --      Device-Management
+
+sis down
+1/1/2          1       access 1GbT           yes     down    Waiting for link        --      Default-port
+1/1/3          1       access 1GbT           yes     down    Waiting for link        --      Default-port
+1/1/4          1       access 1GbT           yes     down    Waiting for link        --      Default-port
 ```
 
 **Switches in a vsf pair**
