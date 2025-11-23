@@ -6,7 +6,7 @@
 Aliases are a great time saver if you run the same commands on a regular basis.
 
 To create an alias:
-* Enter global configuraiton mode
+* Enter global configuration mode
 * Enter a name, then the command surrounded by ".
 
 ```
@@ -21,34 +21,94 @@ test-5412-MDF#ipb
   D24          100/1000T  | No        Yes     Up     1000FDx    MDIX off  0
 ```
 
-To view aliases
+To view alias configurations
 
 ```
 sh run | i alia
 alias "wr" "write memory"
 alias "ipb" "sh interfaces br | i Up"
 ```
+
+To show aliases along with the command
+
+```
+show alias
+
+  Name                             Command                                      
+ -------------------------------- ---------------------------------------------
+ sa                               show alias                                   
+ tl                               terminal length 40                           
+ tw                               terminal width 150                           
+ aaa                              show run | in aaa                            
+ uid                              chassislocate member $1 blink                
+ cppm                             show port-access clients                     
+ s-ii                             show ip                                      
+ user                             sh ip ssh strict                             
+ vlan                             show vlan custom id name:15 ipaddr ipmask ...
+ s-dns                            show ip dns                                  
+ dhcpsb                           show dhcp-snooping binding                   
+ dhcpss                           show dhcp-snooping stats                     
+ s-lans                           show vlan custom id name:15 ipaddr ipmask:...
+ s-name                           show name | i [a-z] | [A-Z]                  
+ s-snmp                           show run | in snmp                           
+ uidoff                           chassislocate member $1 off                  
+ s-power                          sh power br | i Delivering                   
+ s-vlans                          show ip                                      
+ debug-on                         debug destination session                    
+ debug-off                        no debug destination session                 
+ s-ospf-ne                        sh ip ospf neighbor                          
+ s-ospf-ext                       sh ip ospf external-link-state               
+ s-ospf-int                       sh ip ospf interface                         
+ s-power-br                       show power brief                             
+ s-int-trans                      show interfaces transceiver                  
+ s-int-status                     show interface status                        
+ create-backup                    copy config config1 config backup            
+ s-backup-conf                    show config backup                           
+ s-bcast-limit                    show rate-limit bcast $1                     
+ s-diff-backup                    cfg-restore flash backup diff                
+ s-arp-throttle                   show ip arp-throttle                         
+ s-icmp-settings                  show ip icmp                                 
+ s-instrument-monitor             show instrumentation monitor                 
+ s-instrument-routing             show instrumentation routing  
+```
+
 Here are some aliases that I include in most Aruba legacy switches
 
 ```
-alias sis "show interface status"
-alias sip "show ip"
-alias sn "show name"
-alias sit "show interfaces transceiver"
-alias "pwr" "sh power br | i Delivering"
-alias spb "show power brief"
-alias aaa "show run | in aaa"
-alias snmp "show run | in snmp"
-alias "vlan" "show vlans custom id ipaddr ipmask state"
+alias "s-dns" "show ip dns"
+alias "s-lans" "show Vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo"
+alias "s-name" "show name | i [a-z] | [A-Z]"
+alias "s-snmp" "show run | in snmp"
+alias "s-power" "sh power br | i Delivering"
+alias "s-vlans" "show ip"
+alias "s-ospf-ne" "sh ip ospf neighbor"
+alias "s-ospf-ext" "sh ip ospf external-link-state"
+alias "s-ospf-int" "sh ip ospf interface"
+alias "s-power-br" "show power brief"
+alias "s-int-trans" "show interfaces transceiver"
+alias "s-int-status" "show interface status"
+alias "s-backup-conf" "show config backup"
+alias "s-bcast-limit" "show rate-limit bcast $1"
+alias "s-arp-throttle" "show ip arp-throttle"
+alias "s-icmp-settings" "show ip icmp"
+alias "s-ii" "show ip"
+alias "s-instrument-monitor" "show instrumentation monitor"
+alias "s-instrument-routing" "show instrumentation routing"
+alias "aaa" "show run | in aaa"
 alias "cppm" "show port-access clients"
-alias "user" "sh ip ssh strict"
+alias "diff-backup" "cfg-restore flash backup diff"
+alias "create-backup" "copy config config1 config backup"
+alias "debug-on" "debug destination session"
+alias "debug-off" "no debug destination session"
+alias "dhcpsb" "show dhcp-snooping binding"
+alias "dhcpss" "show dhcp-snooping stats"
+alias "sa" "show alias"
+alias "tl" "terminal length 40"
+alias "tw" "terminal width 150"
 alias "uid" "chassislocate member $1 blink"
 alias "uidoff" "chassislocate member $1 off"
-alias "ospf" "sh ip ospf interface VLAN 850"
-alias "ospfext" "sh ip ospf external-link-state"
-alias "ospfne" "sh ip ospf neighbor"
-alias tw "terminal width 150"
-alias smon "show instrumentation monitor"
+alias "user" "sh ip ssh strict"
+alias "Vlan" "show Vlan custom id name:15 ipaddr ipmask ipconfig state voice jumbo"
 ```
 
 **Example Output**</br>
@@ -56,24 +116,39 @@ alias smon "show instrumentation monitor"
 **show ip**</br>
 
 ```
-sii
+s-ii
 
  Internet (IP) Service
 
-  IP Routing : Disabled
+  IP Routing : Enabled 
 
-  Default Gateway :                
+
   Default TTL     : 64   
   Arp Age         : 20  
-  Domain Suffix   : example.com               
-  DNS server      : 1.1.1.1                            
+  Domain Suffix   : pu.pri                        
+  DNS server      : 192.168.10.222                          
 
                        |                                            Proxy ARP 
   VLAN                 | IP Config  IP Address      Subnet Mask     Std  Local
   -------------------- + ---------- --------------- --------------- ----------
-  DEFAULT_VLAN         | Disabled 
-  User                 | Manual     10.50.32.200    255.255.255.0    No    No
-  OpenQuery            | Manual     10.50.33.200    255.255.255.0    No    No
+  DEFAULT_VLAN         | DHCP/Bootp
+  User                 | Manual     192.168.10.52   255.255.255.0    No    No
+  OCC_DHCP_20          | Manual     10.164.24.200   255.255.255.0    No    No
+  voice                | Disabled 
+  IOT0                 | Disabled 
+  IOT1                 | Disabled 
+  IOT2                 | Disabled 
+  IOT3                 | Disabled 
+  test                 | Manual     10.10.100.1     255.255.255.0    No    No
+  OSPF-Peering         | Manual     10.254.34.18    255.255.255.252  No    No
+ 
+
+
+                                                              Loopback Interface
+
+  Loopback     | IP Config    IP Address      Subnet Mask    
+  ------------ + ------------ --------------- ---------------
+           lo0 | Manual                1.1.1.1 255.255.255.255
   
   ```
 
@@ -119,17 +194,17 @@ Status and Counters - VLAN Information - Custom view
 uid 1         
 uidoff 1
 
-If the switch isn't stacked modifiy the alias:
+If the switch isn't stacked, modify the alias:
 alias "uid" "chassislocate blink"
 alias "uidoff" "chassislocate off"
 ```
 I have been adding `stacking enable` to my template so that aliases and interface names are consistent between stacks and standalone switches. </br>
 
-For example, with stacking disabled, a Procurve 2930 will refer to the first copper port as "1". 
+For example, with stacking disabled, a ProCurve 2930 will refer to the first copper port as "1". 
 
 With stacking enabled, it will refer to it as 1/1. 
 
-I can use logic in my Jinja2 template to deal with the differences but I have found customers coming from Cisco like 1/1 better that 1 anyway.
+I can use logic in my Jinja2 template to handle the differences, but I have found that customers coming from Cisco prefer 1/1 over 1 anyway.
 
  
  ## Usage Notes ##
@@ -141,7 +216,7 @@ I can use logic in my Jinja2 template to deal with the differences but I have fo
   1/19  24d9213a9588  24:d9:21:3a:87:88 10.233.12.61     *COR_WIRED_VoI... MAC   20
 ```
 </br>
-You can can also use standard Linux regex in the pipe command. In this example, I wanted to display just ports 3/46, 3/47, 3/48. I used square brackets [] and then entered 6-8 in the brackets. You can see that it returned only the ports I was interested in.
+You can also use standard Linux regex in the pipe command. In this example, I wanted to display just ports 3/46, 3/47, 3/48. I used square brackets [] and then entered 6-8 in the brackets. You can see that it returned only the ports I was interested in.
 </br>
 </br>
 
