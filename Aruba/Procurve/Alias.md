@@ -24,7 +24,7 @@ test-5412-MDF#ipb
 To view alias configurations
 
 ```
-sh run | i alia
+sh run | i alias
 alias "wr" "write memory"
 alias "ipb" "sh interfaces br | i Up"
 ```
@@ -34,40 +34,52 @@ To show aliases along with the command
 ```
 show alias
 
-  Name                             Command                                      
+ Name                             Command                                      
  -------------------------------- ---------------------------------------------
  sa                               show alias                                   
- tl                               terminal length 40                           
- tw                               terminal width 150                           
- aaa                              show run | in aaa                            
- uid                              chassislocate member $1 blink                
- cppm                             show port-access clients                     
+ sab                              sh alias | i ^ b-                            
+ sas                              sh alias | i ^ s-                            
+ sat                              sh alias | i ^ t-                            
+ b-tl                             terminal length 40                           
+ b-tw                             terminal width 150                           
  s-ii                             show ip                                      
- user                             sh ip ssh strict                             
- vlan                             show vlan custom id name:15 ipaddr ipmask ...
+ b-uid                            chassislocate member $1 blink                
+ s-aaa                            show run | in aaa                            
  s-dns                            show ip dns                                  
- dhcpsb                           show dhcp-snooping binding                   
- dhcpss                           show dhcp-snooping stats                     
+ s-job                            show job                                     
+ s-trk                            show trunk                                   
+ b-user                           sh ip ssh strict                             
  s-lans                           show vlan custom id name:15 ipaddr ipmask:...
  s-name                           show name | i [a-z] | [A-Z]                  
  s-snmp                           show run | in snmp                           
- uidoff                           chassislocate member $1 off                  
+ t-cppm                           show port-access clients                     
  s-power                          sh power br | i Delivering                   
  s-vlans                          show ip                                      
- debug-on                         debug destination session                    
- debug-off                        no debug destination session                 
+ b-uidoff                         chassislocate member $1 off                  
  s-ospf-ne                        sh ip ospf neighbor                          
+ b-debug-on                       debug destination session                    
  s-ospf-ext                       sh ip ospf external-link-state               
  s-ospf-int                       sh ip ospf interface                         
  s-power-br                       show power brief                             
+ s-ssh-user                       sh ip ssh strict                             
+ b-debug-off                      no debug destination session                 
  s-int-trans                      show interfaces transceiver                  
+ s-lacp-peer                      show lacp peer                               
+ t-link-flap                      show fault-finder link-flap                  
+ s-dhcp-stats                     show dhcp-snooping stats                     
  s-int-status                     show interface status                        
- create-backup                    copy config config1 config backup            
+ s-lacp-local                     show lacp local                              
  s-backup-conf                    show config backup                           
  s-bcast-limit                    show rate-limit bcast $1                     
  s-diff-backup                    cfg-restore flash backup diff                
+ t-arp-protect                    show logg -r | i arp-protect                 
  s-arp-throttle                   show ip arp-throttle                         
+ s-dhcp-binding                   show dhcp-snooping binding                   
+ b-create-backup                  copy config config1 config backup            
  s-icmp-settings                  show ip icmp                                 
+ s-broadcast-storm                show fault-finder broadcast-storm            
+ t-broadcast-storm                show fault-finder broadcast-storm            
+ s-arp-protect-stats              show arp-protect statistics $1               
  s-instrument-monitor             show instrumentation monitor                 
  s-instrument-routing             show instrumentation routing  
 ```
@@ -75,41 +87,52 @@ show alias
 Here are some aliases that I include in most Aruba legacy switches
 
 ```
+alias "sa" "show alias"
+alias "sab" "sh alias | i ^ b-"
+alias "sas" "sh alias | i ^ s-"
+alias "sat" "sh alias | i ^ t-"
+alias "b-tl" "terminal length 40"
+alias "b-tw" "terminal width 150"
+alias "s-ii" "show ip"
+alias "b-uid" "chassislocate member $1 blink"
+alias "s-aaa" "show run | in aaa"
 alias "s-dns" "show ip dns"
-alias "s-lans" "show Vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo"
+alias "s-job" "show job"
+alias "s-trk" "show trunk"
+alias "b-user" "sh ip ssh strict"
+alias "s-lans" "show vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo"
 alias "s-name" "show name | i [a-z] | [A-Z]"
 alias "s-snmp" "show run | in snmp"
+alias "t-cppm" "show port-access clients"
 alias "s-power" "sh power br | i Delivering"
 alias "s-vlans" "show ip"
+alias "b-uidoff" "chassislocate member $1 off"
 alias "s-ospf-ne" "sh ip ospf neighbor"
+alias "b-debug-on" "debug destination session"
 alias "s-ospf-ext" "sh ip ospf external-link-state"
 alias "s-ospf-int" "sh ip ospf interface"
 alias "s-power-br" "show power brief"
+alias "s-ssh-user" "sh ip ssh strict"
+alias "b-debug-off" "no debug destination session"
 alias "s-int-trans" "show interfaces transceiver"
+alias "s-lacp-peer" "show lacp peer"
+alias "t-link-flap" "show fault-finder link-flap"
+alias "s-dhcp-stats" "show dhcp-snooping stats"
 alias "s-int-status" "show interface status"
+alias "s-lacp-local" "show lacp local"
 alias "s-backup-conf" "show config backup"
 alias "s-bcast-limit" "show rate-limit bcast $1"
+alias "s-diff-backup" "cfg-restore flash backup diff"
+alias "t-arp-protect" "show logg -r | i arp-protect"
 alias "s-arp-throttle" "show ip arp-throttle"
+alias "s-dhcp-binding" "show dhcp-snooping binding"
+alias "b-create-backup" "copy config config1 config backup"
 alias "s-icmp-settings" "show ip icmp"
-alias "s-ii" "show ip"
+alias "s-broadcast-storm" "show fault-finder broadcast-storm"
+alias "t-broadcast-storm" "show fault-finder broadcast-storm"
+alias "s-arp-protect-stats" "show arp-protect statistics $1"
 alias "s-instrument-monitor" "show instrumentation monitor"
-alias "s-instrument-routing" "show instrumentation routing"
-alias "aaa" "show run | in aaa"
-alias "cppm" "show port-access clients"
-alias "diff-backup" "cfg-restore flash backup diff"
-alias "create-backup" "copy config config1 config backup"
-alias "debug-on" "debug destination session"
-alias "debug-off" "no debug destination session"
-alias "dhcpsb" "show dhcp-snooping binding"
-alias "dhcpss" "show dhcp-snooping stats"
-alias "sa" "show alias"
-alias "tl" "terminal length 40"
-alias "tw" "terminal width 150"
-alias "uid" "chassislocate member $1 blink"
-alias "uidoff" "chassislocate member $1 off"
-alias "user" "sh ip ssh strict"
-alias "Vlan" "show Vlan custom id name:15 ipaddr ipmask ipconfig state voice jumbo"
-```
+alias "s-instrument-routing" "show instrumentation routing"```
 
 **Example Output**</br>
 
@@ -156,7 +179,7 @@ s-ii
 
   
   ```
-  spb
+  s-power-br
 
  Status and Configuration Information
 
@@ -171,19 +194,26 @@ s-ii
  1/3    Yes  low      off     usage usage  0.0 W   0.0 W   Searching    0    -  
  
  ```
-**show vlans custom id ipaddr ipmask state**
+**show vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo**
 
 ```
-vlan
+s-lans 
 
 Status and Counters - VLAN Information - Custom view
 
- VLANID IP Addr                                        IP Mask         State
- ------ ---------------------------------------------- --------------- -----
- 1      fe80::8e85:c1ff:fe51:f84a%vlan1                /64             Down 
- 10     10.50.32.200                                   255.255.255.0   Down 
- 20     10.50.184.200                                  255.255.255.0   Down 
- 25     10.50.11.200                                   255.255.255.0   Down 
+ VLANID VLAN name       IP Addr         IP Mask           IPConfig   State Jumbo
+ ------ --------------- --------------- ----------------- ---------- ----- -----
+ 1      DEFAULT_VLAN                                      DHCP/Bootp Down  No   
+ 10     User            192.168.10.52   255.255.255.0     Manual     Up    No   
+ 20     OCC_DHCP_20     10.164.24.200   255.255.255.0     Manual     Down  No   
+ 60     IOT0                                              Disabled   Up    No   
+ 61     IOT1                                              Disabled   Up    No   
+ 62     IOT2                                              Disabled   Up    No   
+ 63     IOT3                                              Disabled   Up    No   
+ 100    test            10.10.100.1     255.255.255.0     Manual     Down  No   
+ 850    OSPF-Peering    10.254.34.18    255.255.255.252   Manual     Down  No   
+ 30     voice                                             Disabled   Up    No   
+
  
  ```
  
@@ -193,11 +223,14 @@ Status and Counters - VLAN Information - Custom view
  ```
 uid 1         
 uidoff 1
+```
 
+**NOTE**
 If the switch isn't stacked, modify the alias:
+
 alias "uid" "chassislocate blink"
 alias "uidoff" "chassislocate off"
-```
+
 I have been adding `stacking enable` to my template so that aliases and interface names are consistent between stacks and standalone switches. </br>
 
 For example, with stacking disabled, a ProCurve 2930 will refer to the first copper port as "1". 
