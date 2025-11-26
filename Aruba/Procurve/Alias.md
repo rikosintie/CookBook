@@ -209,12 +209,12 @@ b-
  b-debug-off
 ```
 
-### Alias that takes a parameter
+### Aliases that need a parameter
 
-The `s-bcast-limit` alias uses the symbol $1 to represent an argument. This is standard Linux BASH Shell style. The command looks
+The `s-bcast-limit` alias uses the symbol `$1` to represent an argument. This is standard Linux BASH Shell style. The command looks
 like this:
 
-`show rate-limit bcast $1`
+`alias "s-bcast-limit" "show rate-limit bcast $1"`
 
 To use the alias:
 
@@ -228,16 +228,107 @@ s-bcast-limit 5
   5     | 1             %        
 ```
 
+The `%` under Mode means the rate is configured in percent. You can also use Kpps:
+
+```
+s-bcast-limit 1
+
+ Broadcast-Traffic Rate Limit Maximum %
+
+  Port  | Inbound Limit Mode     
+  ----- + ------------- ---------
+  1     | 100           kbps     
+
+```
+
+### Usage Notes ###
+
+You can use the normal "|" commands with the alias. For example, I wanted to see just VoIP devices that were profiled with cppm: </br>
+ 
+ ```
+2930# cppm | i Vo
+  1/9   24d9213a95d2  24:d9:21:3a:87:d2 10.233.12.42     *WIRED_VoI... MAC   20                 
+  1/19  24d9213a9588  24:d9:21:3a:87:88 10.233.12.61     *WIRED_VoI... MAC   20
+```
+</br>
+You can also use standard Linux regex in the pipe command. In this example, I wanted to display just ports 3/46, 3/47, 3/48. I used square brackets [] and then entered 6-8 in the brackets. You can see that it returned only the ports I was interested in.
+</br>
+</br>
+
+```
+2930# sh int status | i 3/4[6-8]
+  3/46                Up      Auto          1000FDx  100/1000T  20     10      
+  3/47                Down    Auto          1000FDx  100/1000T  20     10      
+  3/48                Down    Auto          1000FDx  100/1000T  20     10  
+```
+ 
+----------------------------------------------------------------
+
+### Interface descriptions
+
+Cisco has the `show interface description` command so that you can look at interface descriptions. I usually enclose my
+interfaces desrciption in <> brackets. For example `< Office Ubiquiti >` so that I can filter on only ports that have descriptions. For example:
+
+```
+show int des | i <
+Vl10                           up             up       < Management >
+Vl11                           up             up       < Servers >
+Vl20                           up             up       < Users >
+Vl30                           up             up       < Voice >
+Vl40                           up             up       < Surveillance >
+Vl100                          up             up       < Management >
+Gi1/0/1                        up             up       < Office Ubiquiti >
+Gi1/0/2                        down           down     < HP z420 >
+Gi1/0/3                        up             up       < Fortinet >
+Gi1/0/4                        up             up       < MyQ hub >
+Gi1/0/5                        up             up       < Hikvision NVR >
+Gi1/0/6                        down           down     < HP z420 >
+Gi1/0/7                        down           down     < NetGear 5 port >
+Gi1/0/25                       down           down     < Drop behind Vizio >
+Gi1/0/26                       down           down     < Epson Printer >
+Gi1/0/27                       down           down     < Drop by Troy >
+Gi1/0/28                       down           down     < Drop by Troy >
+Gi1/0/45                       up             up       < Aruba AP in office >
+Gi1/0/47                       up             up       < NUC ESXi 8 >
+Gi1/0/48                       down           down     <Cisco 2960s>
+```
+
+Using that command, I don't see every port, just ports with a `<`. Not so important on a single switch, but on a modular core or a large stack it's much better.
+
+**HPE Procurve Name command**
+
+The ProCurve switches use `name` instead of description. The `<` character isn't allowed. I use this alias and it seems to work as long as the port
+name isn't all numeric:
+
+```
+alias "s-name" "show name | i [a-z] | [A-Z]"
+
+s-name
+ Port Names
+  Port  Type       Name                                                        
+  1     100/1000T  test                                                        
+  2     100/1000T  Ubiquiti-Nano                                               
+  3     100/1000T  ArubaAP                                                     
+  4     100/1000T  .188-d8d43c-651b3e-camper                                   
+  5     100/1000T  Gar-North-.182                                              
+  9     100/1000T  North-interior-.194                                         
+  15    100/1000T  test                                                        
+  18    100/1000T  05-Camper                                                   
+  21    100/1000T  IP-Camera05-.185                                            
+  22    100/1000T  02-Front-Door                                               
+  23    100/1000T  Garage-Center-.193                                          
+  24    100/1000T  North-interior-.194          
+```
 
 ----------------------------------------------------------------
 
-
-
-**Example Alias Output**</br>
+## Example Alias Output
 
 **show ip**</br>
 
 ```
+alias "s-ii" "show ip"
+
 s-ii
 
  Internet (IP) Service
@@ -266,7 +357,7 @@ s-ii
  
 
 
-                                                              Loopback Interface
+Loopback Interface
 
   Loopback     | IP Config    IP Address      Subnet Mask    
   ------------ + ------------ --------------- ---------------
@@ -274,11 +365,16 @@ s-ii
   
   ```
 
+----------------------------------------------------------------
+
+
   **show power-over-ethernet brief**
 
   
   ```
-  s-power-br
+alias "s-power-br" "show power brief"
+
+s-power-br
 
  Status and Configuration Information
 
@@ -293,9 +389,15 @@ s-ii
  1/3    Yes  low      off     usage usage  0.0 W   0.0 W   Searching    0    -  
  
  ```
+
+----------------------------------------------------------------
+
+
 **show vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo**
 
 ```
+alias "s-lans" "show vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo"
+
 s-lans 
 
 Status and Counters - VLAN Information - Custom view
@@ -315,20 +417,37 @@ Status and Counters - VLAN Information - Custom view
 
  
  ```
+
+----------------------------------------------------------------
+
  
- **Turn chassis LED on**
+**Turn chassis LED on**
+
+Turning on the LED is very useful if you are remote and have a person on site helping you. It reduces confusing when all they have to do is 
+look for the flashing LED to know which switch you are referring to.
  
- To enable the LED on member 1:
+To enable the LED on member 1:
  ```
-uid 1         
+alias "b-uid" "chassislocate member $1 blink"
+
+b-uid 1
+```
+
+To disable the LED on member 1:
+
+```
+alias "b-uidoff" "chassislocate member $1 off"
+
 uidoff 1
 ```
 
-**NOTE**
+**NOTE**</br>
 If the switch isn't stacked, modify the alias:
 
+```
 alias "uid" "chassislocate blink"
 alias "uidoff" "chassislocate off"
+```
 
 I have been adding `stacking enable` to my template so that aliases and interface names are consistent between stacks and standalone switches. </br>
 
@@ -337,26 +456,5 @@ For example, with stacking disabled, a ProCurve 2930 will refer to the first cop
 With stacking enabled, it will refer to it as 1/1. 
 
 I can use logic in my Jinja2 template to handle the differences, but I have found that customers coming from Cisco prefer 1/1 over 1 anyway.
-
- 
- ## Usage Notes ##
- You can use the normal "|" commands with the alias. For example, I wanted to see just VoIP devices that were profiled with cppm: </br>
- 
- ```
-2930# cppm | i Vo
-  1/9   24d9213a95d2  24:d9:21:3a:87:d2 10.233.12.42     *COR_WIRED_VoI... MAC   20                 
-  1/19  24d9213a9588  24:d9:21:3a:87:88 10.233.12.61     *COR_WIRED_VoI... MAC   20
-```
-</br>
-You can also use standard Linux regex in the pipe command. In this example, I wanted to display just ports 3/46, 3/47, 3/48. I used square brackets [] and then entered 6-8 in the brackets. You can see that it returned only the ports I was interested in.
-</br>
-</br>
-
-```
-2930# sh int status | i 3/4[6-8]
-  3/46                Up      Auto          1000FDx  100/1000T  20     10      
-  3/47                Down    Auto          1000FDx  100/1000T  20     10      
-  3/48                Down    Auto          1000FDx  100/1000T  20     10  
-```
   
   
