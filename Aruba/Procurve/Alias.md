@@ -5,7 +5,7 @@
 
 Aliases are a great time saver if you run the same commands on a regular basis.
 
-To create an alias:
+## To create an alias:
 * Enter global configuration mode
 * Enter a name, then the command surrounded by ".
 
@@ -21,7 +21,7 @@ test-5412-MDF#ipb
   D24          100/1000T  | No        Yes     Up     1000FDx    MDIX off  0
 ```
 
-To view alias configurations
+## To view alias configurations
 
 ```
 sh run | i alias
@@ -29,7 +29,9 @@ alias "wr" "write memory"
 alias "ipb" "sh interfaces br | i Up"
 ```
 
-To show aliases along with the command
+----------------------------------------------------------------
+
+### To show aliases along with the command
 
 ```
 show alias
@@ -84,7 +86,9 @@ show alias
  s-instrument-routing             show instrumentation routing  
 ```
 
-Here are some aliases that I include in most Aruba legacy switches
+----------------------------------------------------------------
+
+## Here are some aliases that I include in most Aruba legacy switches
 
 ```
 alias "sa" "show alias"
@@ -133,8 +137,103 @@ alias "t-broadcast-storm" "show fault-finder broadcast-storm"
 alias "s-arp-protect-stats" "show arp-protect statistics $1"
 alias "s-instrument-monitor" "show instrumentation monitor"
 alias "s-instrument-routing" "show instrumentation routing"```
+```
 
-**Example Output**</br>
+----------------------------------------------------------------
+
+### Grouping the aliases
+
+I start the alias name with one of these letters:
+
+- b - These are basic commands like sending debug messages to the screen
+- s - These are `show commands`
+- t - These are troubleshooting commands like `show logg -r | i arp-protect` to display arp-protect messages.
+
+The advantage to this is that the AOS-S switches (Formerly ProCurve) have tab completion. So you can type
+`s-`, press tab to see all of the show aliases:
+
+```
+s-
+ s-power
+ s-bcast-limit
+ s-power-br
+ s-int-status
+ s-int-trans
+ s-snmp
+ s-ospf-ext
+ s-lans
+ s-ospf-int
+ s-ospf-ne
+ s-instrument-routing
+ s-instrument-monitor
+ s-icmp-settings
+ s-dns
+ s-vlans
+ s-arp-throttle
+ s-diff-backup
+ s-name
+ s-ii
+ s-dhcp-binding
+ s-dhcp-stats
+ s-ssh-user
+ s-arp-protect-stats
+ s-job
+ s-lacp-peer
+ s-lacp-local
+ s-trk
+ s-aaa
+ s-broadcast-storm
+```
+
+or type `t-`, press tab to see all of the troubleshooting aliases:
+
+```
+t-
+ t-arp-protect
+ t-cppm
+ t-link-flap
+ t-broadcast-storm
+```
+
+Finally, type `b-`, press tab to see all of the basic aliases:
+
+```
+b-
+ b-tl
+ b-tw
+ b-uid
+ b-uidoff
+ b-create-backup
+ b-user
+ b-debug-on
+ b-debug-off
+```
+
+### Alias that takes a parameter
+
+The `s-bcast-limit` alias uses the symbol $1 to represent an argument. This is standard Linux BASH Shell style. The command looks
+like this:
+
+`show rate-limit bcast $1`
+
+To use the alias:
+
+```
+s-bcast-limit 5
+
+ Broadcast-Traffic Rate Limit Maximum %
+
+  Port  | Inbound Limit Mode     
+  ----- + ------------- ---------
+  5     | 1             %        
+```
+
+
+----------------------------------------------------------------
+
+
+
+**Example Alias Output**</br>
 
 **show ip**</br>
 
