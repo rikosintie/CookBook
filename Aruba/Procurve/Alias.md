@@ -331,7 +331,7 @@ s-name
 
 **show spanning-tree root-history vlan $1**
 
-I troubleshooting an intermittent network issue. It felt like a spanning tree problem.
+I was troubleshooting an intermittent network issue. It felt like a spanning tree problem.
 
 I ran the alias `t-span-root 60` and the history made it obvious that there was a spanning tree issue happening:
 
@@ -370,10 +370,10 @@ s-int-all
   2      100/1000T  Up     100HDx  Auto         off   Ubiquit... multi Yes     No        0
 ```
 
-I checked the port configuraiton and it was set to `auto`. I checked the Ubiquiti wireles bridge on the port and it was configured for 100FDX! I changed the port to 100FDx and the problem was resolved. 
+I checked the port configuraiton and it was set to `auto.` I checked the Ubiquiti wireless bridge on the port and it was configured for 100FDX! I changed the port to 100FDx and the problem was resolved. 
 
 Why did that happen?
-The Ubiquiti was set to 100FDx which disabled the Ehternet auto negotiation packets. Since the switch was set to auto but not receiving auto negotiation packets it set the port to 100FDx. 
+The Ubiquiti was set to 100FDx which disabled the Ehternet auto negotiation packets. Since the switch was set to auto but not receiving auto negotiation packets it set the port to 100HDx. 
 
 
 **show ip**</br>
