@@ -36,54 +36,56 @@ alias "ipb" "sh interfaces br | i Up"
 ```
 show alias
 
- Name                             Command                                      
+ Name                             Command
  -------------------------------- ---------------------------------------------
- sa                               show alias                                   
- sab                              sh alias | i ^ b-                            
- sas                              sh alias | i ^ s-                            
- sat                              sh alias | i ^ t-                            
- b-tl                             terminal length 40                           
- b-tw                             terminal width 150                           
- s-ii                             show ip                                      
- b-uid                            chassislocate member $1 blink                
- s-aaa                            show run | in aaa                            
- s-dns                            show ip dns                                  
- s-job                            show job                                     
- s-trk                            show trunk                                   
- b-user                           sh ip ssh strict                             
- s-lans                           show vlan custom id name:15 ipaddr ipmask:...
- s-name                           show name | i [a-z] | [A-Z]                  
- s-snmp                           show run | in snmp                           
- t-cppm                           show port-access clients                     
- s-power                          sh power br | i Delivering                   
- s-vlans                          show ip                                      
- b-uidoff                         chassislocate member $1 off                  
- s-ospf-ne                        sh ip ospf neighbor                          
- b-debug-on                       debug destination session                    
- s-ospf-ext                       sh ip ospf external-link-state               
- s-ospf-int                       sh ip ospf interface                         
- s-power-br                       show power brief                             
- s-ssh-user                       sh ip ssh strict                             
- b-debug-off                      no debug destination session                 
- s-int-trans                      show interfaces transceiver                  
- s-lacp-peer                      show lacp peer                               
- t-link-flap                      show fault-finder link-flap                  
- s-dhcp-stats                     show dhcp-snooping stats                     
- s-int-status                     show interface status                        
- s-lacp-local                     show lacp local                              
- s-backup-conf                    show config backup                           
- s-bcast-limit                    show rate-limit bcast $1                     
- s-diff-backup                    cfg-restore flash backup diff                
- t-arp-protect                    show logg -r | i arp-protect                 
- s-arp-throttle                   show ip arp-throttle                         
- s-dhcp-binding                   show dhcp-snooping binding                   
- b-create-backup                  copy config config1 config backup            
- s-icmp-settings                  show ip icmp                                 
- s-broadcast-storm                show fault-finder broadcast-storm            
- t-broadcast-storm                show fault-finder broadcast-storm            
- s-arp-protect-stats              show arp-protect statistics $1               
- s-instrument-monitor             show instrumentation monitor                 
- s-instrument-routing             show instrumentation routing  
+ sa                               show alias
+ sab                              sh alias | i ^ b-
+ sas                              sh alias | i ^ s-
+ sat                              sh alias | i ^ t-
+ b-tl                             terminal length 40
+ b-tw                             terminal width 150
+ s-ii                             show ip
+ b-uid                            chassislocate member $1 blink
+ s-aaa                            show run | in aaa
+ s-dns                            show ip dns
+ s-job                            show job
+ s-trk                            show trunk
+ b-user                           sh ip ssh strict
+ s-lans                           show vlan custom id name:15 ipaddr ipmask:17 ipconfig state jumbo
+ s-name                           show name | i [a-z] | [A-Z]
+ s-snmp                           show run | in snmp
+ t-cppm                           show port-access clients
+ s-power                          sh power br | i Delivering
+ s-vlans                          show ip
+ b-uidoff                         chassislocate member $1 off
+ s-int-all                        show interfaces custom 1-24 port type status speed mode flow name vlan enabled intrusion bcast
+ s-ospf-ne                        sh ip ospf neighbor
+ b-debug-on                       debug destination session
+ s-ospf-ext                       sh ip ospf external-link-state
+ s-ospf-int                       sh ip ospf interface
+ s-power-br                       show power brief
+ s-ssh-user                       sh ip ssh strict
+ b-debug-off                      no debug destination session
+ s-int-trans                      show interfaces transceiver
+ s-lacp-peer                      show lacp peer
+ t-link-flap                      show fault-finder link-flap
+ t-span-root                      show spanning-tree root-history vlan $1
+ s-dhcp-stats                     show dhcp-snooping stats
+ s-int-status                     show interface status
+ s-lacp-local                     show lacp local
+ s-backup-conf                    show config backup
+ s-bcast-limit                    show rate-limit bcast $1
+ s-diff-backup                    cfg-restore flash backup diff
+ t-arp-protect                    show logg -r | i arp-protect
+ s-arp-throttle                   show ip arp-throttle
+ s-dhcp-binding                   show dhcp-snooping binding
+ b-create-backup                  copy config config1 config backup
+ s-icmp-settings                  show ip icmp
+ s-broadcast-storm                show fault-finder broadcast-storm
+ t-broadcast-storm                show fault-finder broadcast-storm
+ s-arp-protect-stats              show arp-protect statistics $1
+ s-instrument-monitor             show instrumentation monitor
+ s-instrument-routing             show instrumentation routing
 ```
 
 ----------------------------------------------------------------
@@ -111,6 +113,7 @@ alias "t-cppm" "show port-access clients"
 alias "s-power" "sh power br | i Delivering"
 alias "s-vlans" "show ip"
 alias "b-uidoff" "chassislocate member $1 off"
+alias "s-int-all" "show interfaces custom 1-24 port type status speed mode flow name vlan enabled intrusion bcast"
 alias "s-ospf-ne" "sh ip ospf neighbor"
 alias "b-debug-on" "debug destination session"
 alias "s-ospf-ext" "sh ip ospf external-link-state"
@@ -121,6 +124,7 @@ alias "b-debug-off" "no debug destination session"
 alias "s-int-trans" "show interfaces transceiver"
 alias "s-lacp-peer" "show lacp peer"
 alias "t-link-flap" "show fault-finder link-flap"
+alias "t-span-root" "show spanning-tree root-history vlan $1"
 alias "s-dhcp-stats" "show dhcp-snooping stats"
 alias "s-int-status" "show interface status"
 alias "s-lacp-local" "show lacp local"
@@ -136,7 +140,7 @@ alias "s-broadcast-storm" "show fault-finder broadcast-storm"
 alias "t-broadcast-storm" "show fault-finder broadcast-storm"
 alias "s-arp-protect-stats" "show arp-protect statistics $1"
 alias "s-instrument-monitor" "show instrumentation monitor"
-alias "s-instrument-routing" "show instrumentation routing"```
+alias "s-instrument-routing" "show instrumentation routing"
 ```
 
 ----------------------------------------------------------------
@@ -323,6 +327,54 @@ s-name
 ----------------------------------------------------------------
 
 ## Example Alias Output
+
+
+**show spanning-tree root-history vlan $1**
+
+I troubleshooting an intermittent network issue. It felt like a spanning tree problem.
+
+I ran the alias `t-span-root 60` and the history made it obvious that there was a spanning tree issue happening:
+
+```
+Status and Counters - RPVST Root Changes History
+
+  VLAN ID                : 60
+  Root Changes Counter   : 122
+  Current Root Bridge ID : 4096:f87b20-34a380
+
+ Root Bridge ID      Date       Time
+ ------------------- ---------- --------
+  4096:f87b20-34a380 11/26/2025 22:53:18
+ 32768:98f2b3-fe8880 11/26/2025 22:53:11
+  4096:f87b20-34a380 11/26/2025 22:52:14
+ 32768:98f2b3-fe8880 11/26/2025 22:52:13
+  4096:f87b20-34a380 11/26/2025 22:51:10
+ 32768:98f2b3-fe8880 11/26/2025 22:51:09
+  4096:f87b20-34a380 11/26/2025 22:50:31
+ 32768:98f2b3-fe8880 11/26/2025 22:50:30
+  4096:f87b20-34a380 11/26/2025 22:49:21
+ 32768:98f2b3-fe8880 11/26/2025 22:49:20
+```
+
+After seeing this, I ran the `s-int-all` alias and saw that the uplink was running at 100HDx! 
+
+```
+s-int-all
+
+ Status and Counters - Custom Port Status
+
+                                                Flow                           Intrusion Bcast
+  Port   Type       Status Speed   Config-mode  Ctrl  Name       VLAN  Enabled Alert     Limit
+  ------ ---------- ------ ------- ------------ ----- ---------- ----- ------- --------- ------
+  1      100/1000T  Down   1000FDx Auto         off   test       850   Yes     No        0
+  2      100/1000T  Up     100HDx  Auto         off   Ubiquit... multi Yes     No        0
+```
+
+I checked the port configuraiton and it was set to `auto`. I checked the Ubiquiti wireles bridge on the port and it was configured for 100FDX! I changed the port to 100FDx and the problem was resolved. 
+
+Why did that happen?
+The Ubiquiti was set to 100FDx which disabled the Ehternet auto negotiation packets. Since the switch was set to auto but not receiving auto negotiation packets it set the port to 100FDx. 
+
 
 **show ip**</br>
 
