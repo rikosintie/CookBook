@@ -10,9 +10,12 @@ The order matters:
 2. Configure `path`.
 3. Configure `write-memory`.
 
-If `write-memory` is entered before the directory exists, the trigger never activates. Remove it with `no write-memory` and enter it again.
+If `write-memory` is entered before the directory exists, the trigger never activates. 
+Remove it with `no write-memory` and enter it again.
 
-Always use the absolute path `flash:/archive`. A relative path like `flash:archive` is resolved from your current directory, so if you have done a `cd flash:/archive`, the switch tries to write to `flash:/archive/archive/` and fails.
+Always use the absolute path `flash:/archive`. A relative path like `flash:archive` is 
+resolved from your current directory, so if you have done a `cd flash:/archive`, the 
+switch tries to write to `flash:/archive/archive/` and fails.
 
 ----------------------------------------------------------------
 
@@ -35,7 +38,7 @@ The switch keeps the 10 most recent archives and deletes the oldest when it save
 
 ----------------------------------------------------------------
 
-### Replacing a running config from archive
+## Replacing a running config from archive
 
 If a new configuration turns out to cause a problem, you can restore from the archive. First, look at the files in the archive:
 
@@ -74,7 +77,7 @@ This rolls back to the selected configuration without a reboot. The replacement 
 
 ----------------------------------------------------------------
 
-### Create these diff aliases
+## Create these diff aliases
 
 The commands can be hard to remember. The aliases are created in config mode.
 
@@ -85,7 +88,7 @@ alias exec sdiff show archive config differences
 
 ----------------------------------------------------------------
 
-### Show config differences
+## Show config differences
 
 Show the difference between the running configuration and the startup configuration. In this case I changed the description on Gi1/0/19:
 
@@ -124,7 +127,7 @@ In this example, `ip pim sparse-dense-mode` was removed from the SVIs and `ip ig
 
 ----------------------------------------------------------------
 
-### Remove archives
+## Remove archives
 
 An archive file doesn't use much storage, but if you want to clear the switch for eBay or remove the archives:
 
