@@ -36,11 +36,15 @@ alias exec bon event manager run BEACON-ON
 alias exec boff event manager run BEACON-OFF
 ```
 
-Usage:
+## Usage
 
 - `bon` / `boff` - turn the beacon on or off on switch 1 (standalone switch)
 - `bon 3` / `boff 3` - turn the beacon on or off on stack member 3
 
-`$_none_argc` is the number of arguments passed to `event manager run`, and `$_none_arg1` is the first argument. The alias passes anything typed after `bon` through to the applet. Stack member numbers come from `show switch`.
+`$_none_argc` is the number of arguments passed to `event manager run`, 
+and `$_none_arg1` is the first argument. The alias passes anything typed 
+after `bon` through to the applet. Stack member numbers come from `show switch`.
 
-**Note:** Tested on standalone switches only. Not yet tested on a stack. If the `if` block causes problems on a stack, remove actions 1.0-1.4 and change `$sw` to `$_none_arg1`. The switch number is then required every time, including `bon 1`.
+**Note:** Tested on standalone switches only. Not yet tested on a stack. If the 
+`if` block causes problems on a stack, remove actions 1.0-1.4 and change `$sw` 
+to `$_none_arg1`. The switch number is then required every time, including `bon 1`.
