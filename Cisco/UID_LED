@@ -1,0 +1,46 @@
+# UID LED on/off
+
+The beacon LED (blue UID LED) helps identify a switch in a crowded closet. These EEM applets take an optional stack member number and default to switch 1, so the same configuration works on standalone switches and stacks.
+
+If the applets already exist, remove them first. Re-entering an applet with the same name adds to the existing actions instead of replacing them:
+
+```text
+no event manager applet BEACON-ON
+no event manager applet BEACON-OFF
+```
+
+```text
+event manager applet BEACON-ON
+ event none
+ action 1.0 if $_none_argc eq "0"
+ action 1.1  set sw "1"
+ action 1.2 else
+ action 1.3  set sw "$_none_arg1"
+ action 1.4 end
+ action 2.0 cli command "enable"
+ action 2.1 cli command "conf t"
+ action 2.2 cli command "hw-module beacon on switch $sw"
+!
+event manager applet BEACON-OFF
+ event none
+ action 1.0 if $_none_argc eq "0"
+ action 1.1  set sw "1"
+ action 1.2 else
+ action 1.3  set sw "$_none_arg1"
+ action 1.4 end
+ action 2.0 cli command "enable"
+ action 2.1 cli command "conf t"
+ action 2.2 cli command "hw-module beacon off switch $sw"
+!
+alias exec bon event manager run BEACON-ON
+alias exec boff event manager run BEACON-OFF
+```
+
+Usage:
+
+- `bon` / `boff` - turn the beacon on or off on switch 1 (standalone switch)
+- `bon 3` / `boff 3` - turn the beacon on or off on stack member 3
+
+`$_none_argc` is the number of arguments passed to `event manager run`, and `$_none_arg1` is the first argument. The alias passes anything typed after `bon` through to the applet. Stack member numbers come from `show switch`.
+
+**Note:** Tested on standalone switches only. Not yet tested on a stack. If the `if` block causes problems on a stack, remove actions 1.0-1.4 and change `$sw` to `$_none_arg1`. The switch number is then required every time, including `bon 1`.
