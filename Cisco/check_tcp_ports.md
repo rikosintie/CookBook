@@ -1,6 +1,7 @@
 # Check TCP ports
 
 You can use the command `show tcp brief all` to check all listening ports. 
+
 This output was captured while the HTTP server and DNS server were still enabled:
 
 ```text
@@ -30,7 +31,7 @@ no ip dns server
 
 ----------------------------------------------------------------
 
-You can filter for any port. Include the leading dot so `80` doesn't also match addresses or port numbers that contain 80:
+You can filter for any port. Include the leading dot so `80` doesn't also match <br> addresses or port numbers that contain 80:
 
 ```bash linenums='1' hl_lines='1 4'
 show tcp brief all | include \.80
