@@ -32,9 +32,9 @@ Proto        Remote      Port      Local       Port  In Out  Stat TTY OutputIF
 
 ----------------------------------------------------------------
 
-224.0.1.40 is the Cisco-RP-Discovery group, where PIM routers listen for RP (rendezvous point) </br> mapping announcements, and UDP 496 is the port Auto-RP uses. Its counterpart, 224.0.1.39, is Cisco-RP-Announce. It's running because `ip pim sparse-dense-mode` is enabled on the SVIs.
+224.0.1.40 is the Cisco-RP-Discovery group, where PIM routers listen for RP (rendezvous point) </br> mapping announcements, and UDP 496 is the port Auto-RP uses. Its counterpart, 224.0.1.39, is </br> Cisco-RP-Announce. It's running because `ip pim sparse-dense-mode` is enabled on the SVIs.
 
-On a Layer 2 switch PIM does nothing useful. Remove it from the SVIs and replace the IGMP querier function it was providing:
+On a Layer 2 switch PIM does nothing useful. Remove it from the SVIs and replace the </br> IGMP querier function it was providing:
 
 ```text
 interface Vlan10
